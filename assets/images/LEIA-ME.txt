@@ -1,0 +1,30 @@
+===========================================
+IMAGENS NECESSÁRIAS
+===========================================
+
+Coloque as seguintes imagens nesta pasta:
+
+1. logo-colegio-neck.png
+   - Logo do Colégio Neck (azul com detalhes dourados)
+   - Formato: PNG com fundo transparente (recomendado)
+   - Tamanho: Altura mínima de 100px
+   - Nome exato: logo-colegio-neck.png
+
+2. flyer-matriculas-abertas.jpg
+   - Flyer criativo "Matrículas Abertas"
+   - Formato: JPG otimizado
+   - Tamanho recomendado: 1200x800px ou proporção similar
+   - Peso máximo: 500KB para melhor performance
+   - Nome exato: flyer-matriculas-abertas.jpg
+
+===========================================
+DICAS DE OTIMIZAÇÃO
+===========================================
+
+- Use ferramentas como TinyPNG ou Squoosh para comprimir
+- Para o logo, mantenha alta qualidade (PNG)
+- Para o flyer, JPG com qualidade 80-85% geralmente é suficiente
+- Teste o carregamento da página após adicionar as imagens
+
+===========================================
+

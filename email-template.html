@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Lead - Colégio Neck</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold;">🎓 Novo Lead - Matrículas</h1>
+                            <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Colégio Neck</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            <h2 style="color: #1e3a8a; margin: 0 0 20px 0; font-size: 20px;">Novo interesse em matrícula recebido!</h2>
+                            
+                            <p style="color: #333333; margin: 0 0 20px 0; line-height: 1.6;">
+                                Um novo formulário de interesse foi preenchido. Entre em contato o mais rápido possível!
+                            </p>
+                            
+                            <!-- Dados do Responsável -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9fafb; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+                                <tr>
+                                    <td>
+                                        <h3 style="color: #1e3a8a; margin: 0 0 15px 0; font-size: 16px; font-weight: bold;">👤 Dados do Responsável</h3>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Nome:</strong> {{parentName}}</p>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Telefone/WhatsApp:</strong> <a href="https://wa.me/{{phoneClean}}" style="color: #3b82f6; text-decoration: none;">{{phone}}</a></p>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>E-mail:</strong> <a href="mailto:{{email}}" style="color: #3b82f6; text-decoration: none;">{{email}}</a></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Dados da Criança -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #fef3c7; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+                                <tr>
+                                    <td>
+                                        <h3 style="color: #1e3a8a; margin: 0 0 15px 0; font-size: 16px; font-weight: bold;">👶 Dados da Criança</h3>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Nome:</strong> {{childName}}</p>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Idade/Série:</strong> {{childAge}}</p>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Turno Preferido:</strong> {{turno}}</p>
+                                        <p style="margin: 5px 0; color: #333333;"><strong>Interesse em Extracurriculares:</strong> {{extracurricular}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- UTM Tracking -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #eff6ff; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
+                                <tr>
+                                    <td>
+                                        <h3 style="color: #1e3a8a; margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">📊 Origem do Lead</h3>
+                                        <p style="margin: 3px 0; color: #4b5563; font-size: 12px;"><strong>Fonte:</strong> {{utm_source}} | <strong>Médio:</strong> {{utm_medium}} | <strong>Campanha:</strong> {{utm_campaign}}</p>
+                                        <p style="margin: 3px 0; color: #4b5563; font-size: 12px;"><strong>Página:</strong> {{landing_page}}</p>
+                                        <p style="margin: 3px 0; color: #4b5563; font-size: 12px;"><strong>Data/Hora:</strong> {{timestamp}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- CTA Buttons -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+                                <tr>
+                                    <td align="center" style="padding: 10px;">
+                                        <a href="https://wa.me/{{phoneClean}}?text=Olá {{parentName}}, recebemos seu interesse em matricular {{childName}} no Colégio Neck. Como posso ajudar?" style="display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px;">💬 WhatsApp</a>
+                                    </td>
+                                    <td align="center" style="padding: 10px;">
+                                        <a href="tel:{{phoneClean}}" style="display: inline-block; background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%); color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px;">📞 Ligar</a>
+                                    </td>
+                                    <td align="center" style="padding: 10px;">
+                                        <a href="mailto:{{email}}?subject=Matrícula - {{childName}}&body=Olá {{parentName}},%0D%0A%0D%0ARecebemos seu interesse em matricular {{childName}} no Colégio Neck.%0D%0A%0D%0AComo posso ajudar?" style="display: inline-block; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px;">✉️ E-mail</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="color: #666666; margin: 30px 0 0 0; font-size: 12px; text-align: center; border-top: 1px solid #e5e7eb; padding-top: 20px;">
+                                Este é um e-mail automático gerado pelo sistema de captação de leads do Colégio Neck.<br>
+                                <strong>Importante:</strong> Entre em contato em até 24 horas para garantir a conversão!
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #1f2937; padding: 20px; text-align: center; border-radius: 0 0 8px 8px;">
+                            <p style="color: #9ca3af; margin: 0; font-size: 12px;">
+                                Colégio Neck | R. Florianópolis, 516 - Cidade Kemel, Poá - SP<br>
+                                CEP 08554-110 | Desde 1996
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
