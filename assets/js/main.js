@@ -21,8 +21,8 @@ const FACEBOOK_PIXEL_ID = null; // Exemplo: '123456789012345'
 const GOOGLE_ANALYTICS_ID = null; // Exemplo: 'G-XXXXXXXXXX'
 
 // CONFIGURE: Número do WhatsApp para envio de mensagens
-// Formato: 5511950380410 (código do país + DDD + número, sem espaços ou caracteres especiais)
-const WHATSAPP_NUMBER = '5511950380410';
+// Formato: 551146397768 (código do país + DDD + número, sem espaços ou caracteres especiais)
+const WHATSAPP_NUMBER = '551146397768';
 
 /**
  * ============================================
