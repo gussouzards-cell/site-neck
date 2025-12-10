@@ -628,8 +628,8 @@ a:hover {
     height: auto;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-2xl), var(--shadow-colored);
-    object-fit: cover;
-    max-height: 400px;
+    object-fit: contain;
+    object-position: center;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 1;
@@ -718,7 +718,6 @@ a:hover {
     }
     
     .hero-img {
-        max-height: 250px;
         border-radius: var(--radius-sm);
     }
     
@@ -734,10 +733,6 @@ a:hover {
         margin-top: 60px;
         padding: var(--spacing-lg) 0;
     }
-    
-    .hero-img {
-        max-height: 300px;
-    }
 }
 
 /* Tablet */
@@ -745,10 +740,6 @@ a:hover {
     .hero {
         margin-top: 70px;
         padding: var(--spacing-xl) 0;
-    }
-    
-    .hero-img {
-        max-height: 350px;
     }
     
     .btn-cta-primary {
@@ -783,10 +774,6 @@ a:hover {
         margin-right: 0;
     }
     
-    .hero-img {
-        max-height: 500px;
-    }
-    
     .btn-cta-primary {
         width: auto;
         padding: 1rem 2.5rem;
@@ -798,10 +785,6 @@ a:hover {
 @media (min-width: 1024px) {
     .hero {
         padding: var(--spacing-2xl) 0 calc(var(--spacing-2xl) * 1.5);
-    }
-    
-    .hero-img {
-        max-height: 600px;
     }
 }
 

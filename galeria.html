@@ -123,6 +123,86 @@
                 gap: var(--spacing-sm);
             }
         }
+        
+        /* Instagram Section */
+        .instagram-section {
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .instagram-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .instagram-header h2 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-sm);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-family: var(--font-heading);
+        }
+        
+        .instagram-header p {
+            color: var(--color-gray-600);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .instagram-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white !important;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .instagram-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .instagram-widget-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            padding: var(--spacing-md);
+            overflow: hidden;
+            min-height: 500px;
+        }
+        
+        /* Tagembed Widget Styling */
+        .tagembed-widget {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            min-height: 500px;
+        }
+        
+        .tagembed-widget iframe {
+            border: none !important;
+            border-radius: var(--radius-md);
+        }
+        
+        @media (max-width: 768px) {
+            .instagram-widget-container {
+                padding: var(--spacing-sm);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .instagram-widget-container {
+                min-height: 400px;
+            }
+            
+            .tagembed-widget {
+                min-height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -175,168 +255,28 @@
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section class="gallery-section">
+    <!-- Instagram Feed Section -->
+    <section class="instagram-section">
         <div class="container">
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="espacos">Espaços</button>
-                <button class="filter-btn" data-filter="atividades">Atividades</button>
-                <button class="filter-btn" data-filter="eventos">Eventos</button>
-                <button class="filter-btn" data-filter="aulas">Aulas</button>
+            <div class="instagram-header">
+                <h2>Siga-nos no Instagram</h2>
+                <p>Acompanhe nosso dia a dia e os momentos especiais do Colégio Neck</p>
+                <a href="https://www.instagram.com/colegioneck/" target="_blank" rel="noopener" class="instagram-link">
+                    📷 @colegioneck
+                </a>
             </div>
             
-            <div class="gallery-grid">
-                <!-- Espaços -->
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">🏫</div>
-                    <div class="gallery-overlay">
-                        <h3>Salas de Aula</h3>
-                        <p>Ambientes modernos e acolhedores</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">📚</div>
-                    <div class="gallery-overlay">
-                        <h3>Biblioteca</h3>
-                        <p>Espaço de leitura e pesquisa</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">💻</div>
-                    <div class="gallery-overlay">
-                        <h3>Laboratório de Informática</h3>
-                        <p>Tecnologia a serviço da educação</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">🏃</div>
-                    <div class="gallery-overlay">
-                        <h3>Quadra Esportiva</h3>
-                        <p>Atividades físicas e recreação</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">🎨</div>
-                    <div class="gallery-overlay">
-                        <h3>Sala de Artes</h3>
-                        <p>Desenvolvimento da criatividade</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="espacos">
-                    <div class="gallery-placeholder">🍽️</div>
-                    <div class="gallery-overlay">
-                        <h3>Refeitório</h3>
-                        <p>Alimentação saudável e balanceada</p>
-                    </div>
-                </div>
-                
-                <!-- Atividades -->
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">🩰</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Balé</h3>
-                        <p>Expressão corporal e arte</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">🥋</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Judô</h3>
-                        <p>Disciplina e respeito</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">🔧</div>
-                    <div class="gallery-overlay">
-                        <h3>Atividade Maker</h3>
-                        <p>Criação e inovação</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">🤟</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Libras</h3>
-                        <p>Inclusão e comunicação</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">🌍</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Inglês</h3>
-                        <p>Preparação para o mundo</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="atividades">
-                    <div class="gallery-placeholder">💰</div>
-                    <div class="gallery-overlay">
-                        <h3>Educação Financeira</h3>
-                        <p>Consciência financeira</p>
-                    </div>
-                </div>
-                
-                <!-- Eventos -->
-                <div class="gallery-item" data-category="eventos">
-                    <div class="gallery-placeholder">🎉</div>
-                    <div class="gallery-overlay">
-                        <h3>Festa Junina</h3>
-                        <p>Tradição e diversão</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="eventos">
-                    <div class="gallery-placeholder">🎄</div>
-                    <div class="gallery-overlay">
-                        <h3>Natal</h3>
-                        <p>Celebração e união</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="eventos">
-                    <div class="gallery-placeholder">🏆</div>
-                    <div class="gallery-overlay">
-                        <h3>Olimpíadas Escolares</h3>
-                        <p>Competição saudável</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="eventos">
-                    <div class="gallery-placeholder">📖</div>
-                    <div class="gallery-overlay">
-                        <h3>Feira de Ciências</h3>
-                        <p>Descobertas e experimentos</p>
-                    </div>
-                </div>
-                
-                <!-- Aulas -->
-                <div class="gallery-item" data-category="aulas">
-                    <div class="gallery-placeholder">🔬</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Ciências</h3>
-                        <p>Experiências práticas</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="aulas">
-                    <div class="gallery-placeholder">📐</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Matemática</h3>
-                        <p>Raciocínio lógico</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="aulas">
-                    <div class="gallery-placeholder">📝</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Português</h3>
-                        <p>Comunicação e expressão</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="aulas">
-                    <div class="gallery-placeholder">🌎</div>
-                    <div class="gallery-overlay">
-                        <h3>Aula de Geografia</h3>
-                        <p>Conhecimento do mundo</p>
-                    </div>
-                </div>
+            <!-- Instagram Feed Widget -->
+            <div class="instagram-widget-container">
+                <!-- Tagembed Widget - Feed do Instagram -->
+                <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="310821" data-website="1"></div>
+                <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
             </div>
         </div>
     </section>
+
+    <!-- Gallery -->
+   
 
     <!-- Footer -->
     <footer class="footer" id="footer">
@@ -429,7 +369,9 @@
                 });
             });
         });
+        
     </script>
+    
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
