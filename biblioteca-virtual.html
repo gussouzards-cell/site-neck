@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Blog e Notícias - Colégio Neck. Fique por dentro das novidades, eventos e dicas educacionais.">
-    <title>Blog e Notícias - Colégio Neck</title>
+    <meta name="description" content="Biblioteca Virtual - Colégio Neck. Acesse livros, materiais didáticos e recursos educacionais online.">
+    <title>Biblioteca Virtual - Colégio Neck</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
         .page-header {
             margin-top: 80px;
             padding: var(--spacing-2xl) 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
             text-align: center;
         }
@@ -29,11 +29,11 @@
             margin-bottom: var(--spacing-sm);
         }
         
-        .blog-section {
+        .library-section {
             padding: var(--spacing-2xl) 0;
         }
         
-        .blog-filters {
+        .library-filters {
             display: flex;
             justify-content: center;
             gap: var(--spacing-sm);
@@ -41,7 +41,7 @@
             flex-wrap: wrap;
         }
         
-        .filter-btn {
+        .library-filter-btn {
             padding: 0.75rem 1.5rem;
             border: 2px solid var(--color-primary-blue);
             background: white;
@@ -52,114 +52,106 @@
             transition: all 0.3s ease;
         }
         
-        .filter-btn:hover,
-        .filter-btn.active {
+        .library-filter-btn.active {
             background: var(--color-primary-blue);
             color: white;
         }
         
-        .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
+        .library-search {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-xl);
         }
         
-        .blog-card {
-            background: white;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-2xl);
-        }
-        
-        .blog-image {
+        .library-search input {
             width: 100%;
-            height: 250px;
-            background: var(--gradient-secondary);
+            padding: 1rem;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+        }
+        
+        .library-search input:focus {
+            outline: none;
+            border-color: var(--color-primary-blue);
+        }
+        
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .library-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .library-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .library-item-cover {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: white;
-            position: relative;
-            overflow: hidden;
         }
         
-        .blog-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(59, 130, 246, 0.6) 100%);
+        .library-item-info {
+            padding: var(--spacing-md);
         }
         
-        .blog-content {
-            padding: var(--spacing-xl);
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .blog-meta {
-            display: flex;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            font-size: 0.85rem;
-            color: var(--color-gray-600);
-            flex-wrap: wrap;
-        }
-        
-        .blog-category {
-            background: var(--color-gold);
+        .library-item-category {
+            display: inline-block;
+            background: var(--color-primary-blue-light);
             color: var(--color-primary-blue);
             padding: 0.25rem 0.75rem;
             border-radius: var(--radius-sm);
-            font-weight: 600;
             font-size: 0.75rem;
-        }
-        
-        .blog-title {
-            color: var(--color-primary-blue);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.5rem;
-        }
-        
-        .blog-excerpt {
-            color: var(--color-gray-700);
-            line-height: 1.7;
-            margin-bottom: var(--spacing-md);
-            flex: 1;
-        }
-        
-        .blog-link {
-            color: var(--color-primary-blue-light);
             font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .library-item-info h4 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1rem;
+        }
+        
+        .library-item-info p {
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .library-item-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--color-primary-blue);
+            color: white;
+            text-align: center;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            transition: gap 0.3s ease;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
-        .blog-link:hover {
-            gap: var(--spacing-sm);
+        .library-item-btn:hover {
+            background: var(--color-primary-blue-light);
         }
         
-        @media (min-width: 768px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .blog-grid {
-                grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 768px) {
+            .library-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
     </style>
@@ -180,7 +172,7 @@
                     <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
                     <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
                     <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
-                    <a href="blog.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Blog</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
                     <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
                 </nav>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -209,106 +201,101 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>📰 Blog e Notícias</h1>
-            <p>Fique por dentro das novidades, eventos e dicas educacionais</p>
+            <h1>Biblioteca Virtual</h1>
+            <p>Acesse livros, materiais didáticos e recursos educacionais</p>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section class="blog-section">
+    <!-- Library Section -->
+    <section class="library-section">
         <div class="container">
-            <div class="blog-filters">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="noticias">Notícias</button>
-                <button class="filter-btn" data-filter="eventos">Eventos</button>
-                <button class="filter-btn" data-filter="dicas">Dicas</button>
-                <button class="filter-btn" data-filter="conquistas">Conquistas</button>
+            <div class="library-filters">
+                <button class="library-filter-btn active" data-filter="all">Todos</button>
+                <button class="library-filter-btn" data-filter="livros">Livros</button>
+                <button class="library-filter-btn" data-filter="videos">Vídeos</button>
+                <button class="library-filter-btn" data-filter="apostilas">Apostilas</button>
+                <button class="library-filter-btn" data-filter="jogos">Jogos Educativos</button>
             </div>
             
-            <div class="blog-grid" id="blog-grid">
-                <!-- Notícia 1 -->
-                <article class="blog-card" data-category="noticias">
-                    <div class="blog-image">📢</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Notícias</span>
-                            <span>15 Dez 2024</span>
-                        </div>
-                        <h3 class="blog-title">Matrículas 2025 Abertas!</h3>
-                        <p class="blog-excerpt">Estamos com matrículas abertas para o ano letivo de 2025. Venha conhecer nossa proposta pedagógica e garantir a vaga do seu filho. Vagas limitadas!</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+            <div class="library-search">
+                <input type="text" id="library-search" placeholder="Buscar na biblioteca...">
+            </div>
+            
+            <div class="library-grid">
+                <!-- Item 1 -->
+                <div class="library-item" data-category="livros">
+                    <div class="library-item-cover">📚</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Livro</span>
+                        <h4>Matemática Divertida</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="#" class="library-item-btn">Acessar</a>
                     </div>
-                </article>
-
-                <!-- Notícia 2 -->
-                <article class="blog-card" data-category="eventos">
-                    <div class="blog-image">🎄</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Eventos</span>
-                            <span>10 Dez 2024</span>
-                        </div>
-                        <h3 class="blog-title">Festa de Natal 2024</h3>
-                        <p class="blog-excerpt">Nossa tradicional festa de Natal foi um sucesso! Alunos apresentaram lindas apresentações e celebramos juntos o espírito natalino. Confira as fotos!</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="library-item" data-category="videos">
+                    <div class="library-item-cover">🎥</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Vídeo</span>
+                        <h4>Ciências - Sistema Solar</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="#" class="library-item-btn">Assistir</a>
                     </div>
-                </article>
-
-                <!-- Notícia 3 -->
-                <article class="blog-card" data-category="dicas">
-                    <div class="blog-image">💡</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Dicas</span>
-                            <span>5 Dez 2024</span>
-                        </div>
-                        <h3 class="blog-title">Como Ajudar seu Filho nos Estudos em Casa</h3>
-                        <p class="blog-excerpt">Dicas práticas para os pais ajudarem seus filhos a desenvolverem hábitos de estudo saudáveis e eficazes em casa. Acompanhe a série completa!</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="library-item" data-category="apostilas">
+                    <div class="library-item-cover">📄</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Apostila</span>
+                        <h4>Português - Gramática</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="#" class="library-item-btn">Baixar</a>
                     </div>
-                </article>
-
-                <!-- Notícia 4 -->
-                <article class="blog-card" data-category="conquistas">
-                    <div class="blog-image">🏆</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Conquistas</span>
-                            <span>1 Dez 2024</span>
-                        </div>
-                        <h3 class="blog-title">Alunos Destaque do Mês</h3>
-                        <p class="blog-excerpt">Parabenizamos nossos alunos que se destacaram em novembro! Dedicação, esforço e excelência acadêmica. Confira a lista completa dos homenageados.</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="library-item" data-category="jogos">
+                    <div class="library-item-cover">🎮</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Jogo</span>
+                        <h4>Quiz de História</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="quiz.html" class="library-item-btn">Jogar</a>
                     </div>
-                </article>
-
-                <!-- Notícia 5 -->
-                <article class="blog-card" data-category="eventos">
-                    <div class="blog-image">🔬</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Eventos</span>
-                            <span>25 Nov 2024</span>
-                        </div>
-                        <h3 class="blog-title">Feira de Ciências 2024</h3>
-                        <p class="blog-excerpt">Nossa Feira de Ciências foi um sucesso! Alunos apresentaram projetos incríveis e demonstraram muito conhecimento científico. Veja os destaques!</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="library-item" data-category="livros">
+                    <div class="library-item-cover">📖</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Livro</span>
+                        <h4>História do Brasil</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="#" class="library-item-btn">Acessar</a>
                     </div>
-                </article>
-
-                <!-- Notícia 6 -->
-                <article class="blog-card" data-category="dicas">
-                    <div class="blog-image">📚</div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Dicas</span>
-                            <span>20 Nov 2024</span>
-                        </div>
-                        <h3 class="blog-title">A Importância da Leitura na Infância</h3>
-                        <p class="blog-excerpt">Descubra como a leitura desde cedo desenvolve habilidades essenciais e como você pode incentivar seu filho a ler mais. Dicas práticas e eficazes.</p>
-                        <a href="#" class="blog-link">Ler mais →</a>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="library-item" data-category="videos">
+                    <div class="library-item-cover">📹</div>
+                    <div class="library-item-info">
+                        <span class="library-item-category">Vídeo</span>
+                        <h4>Inglês para Iniciantes</h4>
+                        <p>Ensino Fundamental</p>
+                        <a href="#" class="library-item-btn">Assistir</a>
                     </div>
-                </article>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-2xl); padding: var(--spacing-xl); background: var(--color-gray-50); border-radius: var(--radius-lg);">
+                <h3 style="color: var(--color-primary-blue); margin-bottom: var(--spacing-md);">
+                    Mais recursos em breve!
+                </h3>
+                <p style="color: var(--color-gray-700);">
+                    Estamos constantemente atualizando nossa biblioteca virtual com novos materiais e recursos educacionais.
+                </p>
             </div>
         </div>
     </section>
@@ -385,29 +372,53 @@
     </footer>
 
     <script>
-        // Filtro de blog
-        document.querySelectorAll('.filter-btn').forEach(btn => {
+        // Filtros da biblioteca
+        document.querySelectorAll('.library-filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const filter = this.getAttribute('data-filter');
                 
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Atualizar botões
+                document.querySelectorAll('.library-filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
-                document.querySelectorAll('.blog-card').forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'flex';
+                // Filtrar itens
+                document.querySelectorAll('.library-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
                     } else {
-                        card.style.display = 'none';
+                        item.style.display = 'none';
                     }
                 });
             });
         });
+        
+        // Busca
+        document.getElementById('library-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            document.querySelectorAll('.library-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
     </script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
     <!-- Componentes Header e Footer -->
     <script src="assets/js/components/header-component.js"></script>
     <script src="assets/js/components/footer-component.js"></script>
     <script src="assets/js/dropdown-menu.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
 </body>
 </html>
+

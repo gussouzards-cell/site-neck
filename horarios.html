@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Horários de Aulas e Atividades - Colégio Neck. Confira os horários das turmas e atividades extracurriculares.">
+    <title>Horários - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .schedules-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .schedule-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary-blue);
+            background: white;
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .schedule-tab.active {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .schedule-content {
+            display: none;
+        }
+        
+        .schedule-content.active {
+            display: block;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .schedule-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table thead {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .schedule-table th {
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .schedule-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .schedule-table tbody tr:hover {
+            background: var(--color-gray-50);
+        }
+        
+        .schedule-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .time-cell {
+            font-weight: 600;
+            color: var(--color-primary-blue);
+        }
+        
+        .activity-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--color-primary-blue-light);
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-table {
+                overflow-x: auto;
+                display: block;
+            }
+            
+            .schedule-table table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="sobre-nos.html">Sobre Nós</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="educacao.html">Educação</a>
+            <a href="area-aluno.html">Área do Aluno</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Horários de Aulas</h1>
+            <p>Confira os horários das turmas e atividades extracurriculares</p>
+        </div>
+    </section>
+
+    <!-- Schedules Section -->
+    <section class="schedules-section">
+        <div class="container">
+            <div class="schedule-tabs">
+                <button class="schedule-tab active" data-tab="manha">Manhã</button>
+                <button class="schedule-tab" data-tab="tarde">Tarde</button>
+                <button class="schedule-tab" data-tab="integral">Integral</button>
+                <button class="schedule-tab" data-tab="extracurricular">Extracurriculares</button>
+            </div>
+            
+            <!-- Turno Manhã -->
+            <div class="schedule-content active" id="manha">
+                <div class="schedule-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Segunda</th>
+                                <th>Terça</th>
+                                <th>Quarta</th>
+                                <th>Quinta</th>
+                                <th>Sexta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">07:30 - 08:20</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                                <td>História</td>
+                                <td>Geografia</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">08:20 - 09:10</td>
+                                <td>Matemática</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                                <td>Português</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">09:10 - 09:30</td>
+                                <td colspan="5" style="text-align: center; background: var(--color-gray-50);">Intervalo</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">09:30 - 10:20</td>
+                                <td>Inglês</td>
+                                <td>Artes</td>
+                                <td>Educação Física</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">10:20 - 11:10</td>
+                                <td>História</td>
+                                <td>Geografia</td>
+                                <td>Português</td>
+                                <td>Inglês</td>
+                                <td>Educação Física</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">11:10 - 12:00</td>
+                                <td>Informática</td>
+                                <td>Educação Financeira</td>
+                                <td>Artes</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Turno Tarde -->
+            <div class="schedule-content" id="tarde">
+                <div class="schedule-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Segunda</th>
+                                <th>Terça</th>
+                                <th>Quarta</th>
+                                <th>Quinta</th>
+                                <th>Sexta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="time-cell">13:00 - 13:50</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                                <td>História</td>
+                                <td>Geografia</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">13:50 - 14:40</td>
+                                <td>Matemática</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                                <td>Português</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">14:40 - 15:00</td>
+                                <td colspan="5" style="text-align: center; background: var(--color-gray-50);">Intervalo</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">15:00 - 15:50</td>
+                                <td>Inglês</td>
+                                <td>Artes</td>
+                                <td>Educação Física</td>
+                                <td>Matemática</td>
+                                <td>Ciências</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">15:50 - 16:40</td>
+                                <td>História</td>
+                                <td>Geografia</td>
+                                <td>Português</td>
+                                <td>Inglês</td>
+                                <td>Educação Física</td>
+                            </tr>
+                            <tr>
+                                <td class="time-cell">16:40 - 17:30</td>
+                                <td>Informática</td>
+                                <td>Educação Financeira</td>
+                                <td>Artes</td>
+                                <td>Português</td>
+                                <td>Matemática</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Turno Integral -->
+            <div class="schedule-content" id="integral">
+                <div style="background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl);">
+                    <h3 style="color: var(--color-primary-blue); margin-bottom: var(--spacing-md);">Horário Integral</h3>
+                    <p style="color: var(--color-gray-700); line-height: 1.7; margin-bottom: var(--spacing-md);">
+                        O turno integral oferece uma rotina completa que combina atividades acadêmicas, recreação, alimentação e descanso.
+                    </p>
+                    <ul style="color: var(--color-gray-700); line-height: 2;">
+                        <li><strong>07:30 - 12:00:</strong> Aulas regulares (manhã)</li>
+                        <li><strong>12:00 - 13:00:</strong> Almoço e descanso</li>
+                        <li><strong>13:00 - 15:00:</strong> Atividades recreativas e esportivas</li>
+                        <li><strong>15:00 - 16:00:</strong> Lanche</li>
+                        <li><strong>16:00 - 17:30:</strong> Acompanhamento pedagógico e atividades lúdicas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Atividades Extracurriculares -->
+            <div class="schedule-content" id="extracurricular">
+                <div class="schedule-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Atividade</th>
+                                <th>Dia da Semana</th>
+                                <th>Horário</th>
+                                <th>Idade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="activity-badge">🩰 Balé</span></td>
+                                <td>Segunda e Quarta</td>
+                                <td>17:30 - 18:30</td>
+                                <td>4 a 12 anos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="activity-badge">🥋 Judô</span></td>
+                                <td>Terça e Quinta</td>
+                                <td>17:30 - 18:30</td>
+                                <td>5 a 12 anos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="activity-badge">🤟 Libras</span></td>
+                                <td>Quarta</td>
+                                <td>17:30 - 18:30</td>
+                                <td>6 a 12 anos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="activity-badge">🌍 Inglês</span></td>
+                                <td>Segunda e Sexta</td>
+                                <td>17:30 - 18:30</td>
+                                <td>4 a 12 anos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="activity-badge">🔧 Maker</span></td>
+                                <td>Terça</td>
+                                <td>17:30 - 19:00</td>
+                                <td>7 a 12 anos</td>
+                            </tr>
+                            <tr>
+                                <td><span class="activity-badge">💰 Educação Financeira</span></td>
+                                <td>Quinta</td>
+                                <td>17:30 - 18:30</td>
+                                <td>6 a 12 anos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tabs de horários
+        document.querySelectorAll('.schedule-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Atualizar tabs
+                document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Atualizar conteúdo
+                document.querySelectorAll('.schedule-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+    </script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <!-- Componentes Header e Footer -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
+</body>
+</html>
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Galeria de Fotos - Colégio Neck. Conheça nossos espaços, atividades e momentos especiais.">
-    <title>Galeria - Colégio Neck</title>
+    <meta name="description" content="Parceiros e Convênios - Colégio Neck. Conheça nossos parceiros e benefícios especiais.">
+    <title>Parceiros - Colégio Neck</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,178 +29,88 @@
             margin-bottom: var(--spacing-sm);
         }
         
-        .gallery-section {
+        .partners-section {
             padding: var(--spacing-2xl) 0;
         }
         
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--color-primary-blue);
-            background: white;
-            color: var(--color-primary-blue);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--color-primary-blue);
-            color: white;
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: var(--spacing-md);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: var(--spacing-sm);
-            }
-        }
-        
-        /* Instagram Section */
-        .instagram-section {
-            padding: var(--spacing-2xl) 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        
-        .instagram-header {
+        .partners-intro {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
         }
         
-        .instagram-header h2 {
-            color: var(--color-gray-900);
-            margin-bottom: var(--spacing-sm);
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-family: var(--font-heading);
+        .partners-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
         }
         
-        .instagram-header p {
-            color: var(--color-gray-600);
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .instagram-link {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white !important;
-            text-decoration: none;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .instagram-link:hover {
-            transform: translateY(-2px);
+        .partner-category {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
         }
         
-        .instagram-widget-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .partner-category h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .partner-card {
+            background: var(--color-gray-50);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .partner-card:hover {
+            border-color: var(--color-primary-blue);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .partner-logo {
+            width: 120px;
+            height: 120px;
             background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            padding: var(--spacing-md);
-            overflow: hidden;
-            min-height: 500px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 3rem;
+            box-shadow: var(--shadow-sm);
         }
         
-        /* Tagembed Widget Styling */
-        .tagembed-widget {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            min-height: 500px;
+        .partner-card h4 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-xs);
         }
         
-        .tagembed-widget iframe {
-            border: none !important;
-            border-radius: var(--radius-md);
+        .partner-card p {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .become-partner {
+            background: var(--color-gray-50);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
         }
         
         @media (max-width: 768px) {
-            .instagram-widget-container {
-                padding: var(--spacing-sm);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .instagram-widget-container {
-                min-height: 400px;
-            }
-            
-            .tagembed-widget {
-                min-height: 400px;
+            .partners-categories {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -218,7 +128,7 @@
                 <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
                     <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
                     <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
-                    <a href="galeria.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Galeria</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
                     <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
                     <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
                     <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
@@ -250,33 +160,99 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Galeria de Fotos</h1>
-            <p>Conheça nossos espaços, atividades e momentos especiais</p>
+            <h1>Parceiros e Convênios</h1>
+            <p>Benefícios especiais para nossos alunos e famílias</p>
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section class="instagram-section">
+    <!-- Partners Section -->
+    <section class="partners-section">
         <div class="container">
-            <div class="instagram-header">
-                <h2>Siga-nos no Instagram</h2>
-                <p>Acompanhe nosso dia a dia e os momentos especiais do Colégio Neck</p>
-                <a href="https://www.instagram.com/colegioneck/" target="_blank" rel="noopener" class="instagram-link">
-                    📷 @colegioneck
-                </a>
+            <div class="partners-intro">
+                <h2 style="color: var(--color-gray-900); margin-bottom: var(--spacing-md);">
+                    Nossos Parceiros
+                </h2>
+                <p style="color: var(--color-gray-700); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    O Colégio Neck mantém parcerias estratégicas com empresas e instituições para oferecer 
+                    benefícios exclusivos aos nossos alunos e suas famílias.
+                </p>
             </div>
             
-            <!-- Instagram Feed Widget -->
-            <div class="instagram-widget-container">
-                <!-- Tagembed Widget - Feed do Instagram -->
-                <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="310821" data-website="1"></div>
-                <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
+            <div class="partners-categories">
+                <!-- Planos de Saúde -->
+                <div class="partner-category">
+                    <h3>Planos de Saúde</h3>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <div class="partner-logo">🏥</div>
+                            <h4>Unimed</h4>
+                            <p>Desconto especial para famílias</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-logo">💊</div>
+                            <h4>Amil</h4>
+                            <p>Convênio educacional</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Empresas -->
+                <div class="partner-category">
+                    <h3>Empresas Parceiras</h3>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <div class="partner-logo">🏢</div>
+                            <h4>Empresa A</h4>
+                            <p>Desconto para funcionários</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-logo">🏭</div>
+                            <h4>Empresa B</h4>
+                            <p>Convênio corporativo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Serviços -->
+                <div class="partner-category">
+                    <h3>Serviços</h3>
+                    <div class="partners-grid">
+                        <div class="partner-card">
+                            <div class="partner-logo">🚌</div>
+                            <h4>Transporte Escolar</h4>
+                            <p>Parceiros credenciados</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-logo">👕</div>
+                            <h4>Uniforme</h4>
+                            <p>Lojas parceiras</p>
+                        </div>
+                        <div class="partner-card">
+                            <div class="partner-logo">📚</div>
+                            <h4>Material Escolar</h4>
+                            <p>Descontos especiais</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery -->
-   
+    <!-- Become Partner -->
+    <section class="become-partner">
+        <div class="container">
+            <h2 style="color: var(--color-gray-900); margin-bottom: var(--spacing-md);">
+                Quer ser nosso parceiro?
+            </h2>
+            <p style="color: var(--color-gray-700); font-size: 1.1rem; margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Se sua empresa ou instituição tem interesse em estabelecer uma parceria com o Colégio Neck, 
+                entre em contato conosco!
+            </p>
+            <a href="chat.html" class="btn-cta-primary" style="text-decoration: none; display: inline-block;">
+                Entre em Contato
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer" id="footer">
@@ -349,35 +325,19 @@
         </div>
     </footer>
 
-    <script>
-        // Filtro de galeria
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Atualizar botões ativos
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filtrar itens
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-    </script>
-    
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
     <!-- Componentes Header e Footer -->
     <script src="assets/js/components/header-component.js"></script>
     <script src="assets/js/components/footer-component.js"></script>
     <script src="assets/js/dropdown-menu.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
 </body>
 </html>
 

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Calendário de eventos do Colégio Neck. Festivais, apresentações, feiras e muito mais.">
+    <title>Eventos - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .events-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .events-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .event-filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary-blue);
+            background: white;
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .event-filter-btn:hover,
+        .event-filter-btn.active {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+        }
+        
+        .event-date-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--color-primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .event-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .event-category {
+            display: inline-block;
+            background: var(--color-primary-blue-light);
+            color: var(--color-primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .event-content h3 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .event-description {
+            color: var(--color-gray-700);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .event-btn {
+            display: inline-block;
+            background: var(--color-primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .event-btn:hover {
+            background: var(--color-primary-blue-light);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="sobre-nos.html">Sobre Nós</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="educacao.html">Educação</a>
+            <a href="area-aluno.html">Área do Aluno</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Eventos e Atividades</h1>
+            <p>Confira nossa programação de eventos, festivais e atividades especiais</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <div class="events-filters">
+                <button class="event-filter-btn active" data-filter="all">Todos</button>
+                <button class="event-filter-btn" data-filter="festival">Festivais</button>
+                <button class="event-filter-btn" data-filter="apresentacao">Apresentações</button>
+                <button class="event-filter-btn" data-filter="feira">Feiras</button>
+                <button class="event-filter-btn" data-filter="esportivo">Esportivos</button>
+                <button class="event-filter-btn" data-filter="cultural">Culturais</button>
+            </div>
+            
+            <div class="events-grid">
+                <!-- Evento 1 -->
+                <div class="event-card" data-category="festival">
+                    <div class="event-image">
+                        🎉
+                        <div class="event-date-badge">15/06</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Festival</span>
+                        <h3>Festa Junina 2024</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 15 de Junho</div>
+                            <div class="event-meta-item">🕐 18h às 22h</div>
+                            <div class="event-meta-item">📍 Quadra</div>
+                        </div>
+                        <p class="event-description">
+                            Nossa tradicional Festa Junina com quadrilha, comidas típicas, brincadeiras e muito mais! Venha se divertir com a gente!
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 2 -->
+                <div class="event-card" data-category="apresentacao">
+                    <div class="event-image">
+                        🩰
+                        <div class="event-date-badge">20/07</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Apresentação</span>
+                        <h3>Festival de Dança</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 20 de Julho</div>
+                            <div class="event-meta-item">🕐 19h</div>
+                            <div class="event-meta-item">📍 Auditório</div>
+                        </div>
+                        <p class="event-description">
+                            Apresentação dos alunos de balé e dança. Venha prestigiar o talento dos nossos alunos!
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 3 -->
+                <div class="event-card" data-category="feira">
+                    <div class="event-image">
+                        🔬
+                        <div class="event-date-badge">10/08</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Feira</span>
+                        <h3>Feira de Ciências</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 10 de Agosto</div>
+                            <div class="event-meta-item">🕐 14h às 17h</div>
+                            <div class="event-meta-item">📍 Salas de Aula</div>
+                        </div>
+                        <p class="event-description">
+                            Exposição de projetos científicos desenvolvidos pelos alunos. Experimentos, descobertas e muito aprendizado!
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 4 -->
+                <div class="event-card" data-category="esportivo">
+                    <div class="event-image">
+                        🏆
+                        <div class="event-date-badge">25/08</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Esportivo</span>
+                        <h3>Olimpíadas Escolares</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 25 de Agosto</div>
+                            <div class="event-meta-item">🕐 8h às 17h</div>
+                            <div class="event-meta-item">📍 Quadra</div>
+                        </div>
+                        <p class="event-description">
+                            Competições esportivas entre as turmas. Futebol, vôlei, queimada e muito mais!
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 5 -->
+                <div class="event-card" data-category="cultural">
+                    <div class="event-image">
+                        🎭
+                        <div class="event-date-badge">05/09</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Cultural</span>
+                        <h3>Semana da Pátria</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 05 a 07 de Setembro</div>
+                            <div class="event-meta-item">🕐 9h</div>
+                            <div class="event-meta-item">📍 Pátio</div>
+                        </div>
+                        <p class="event-description">
+                            Celebração da Independência do Brasil com apresentações cívicas, desfile e atividades culturais.
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 6 -->
+                <div class="event-card" data-category="apresentacao">
+                    <div class="event-image">
+                        🎄
+                        <div class="event-date-badge">15/12</div>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">Apresentação</span>
+                        <h3>Festa de Natal</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">📅 15 de Dezembro</div>
+                            <div class="event-meta-item">🕐 19h</div>
+                            <div class="event-meta-item">📍 Auditório</div>
+                        </div>
+                        <p class="event-description">
+                            Celebração de fim de ano com apresentações dos alunos, Papai Noel e muita alegria!
+                        </p>
+                        <a href="#" class="event-btn">Mais Informações</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filtro de eventos
+        document.querySelectorAll('.event-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Atualizar botões ativos
+                document.querySelectorAll('.event-filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filtrar eventos
+                document.querySelectorAll('.event-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Componentes Header e Footer -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
+</body>
+</html>
+

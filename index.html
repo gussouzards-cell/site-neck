@@ -4,15 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Colégio Neck - Matrículas Abertas. Educação completa com atividades extracurriculares: Balé, Judô, Libras, Inglês, Maker e muito mais.">
+    <meta name="keywords" content="colégio neck, matrículas abertas, educação infantil, ensino fundamental, poá, atividades extracurriculares, balé, judô, libras, inglês, maker">
+    <meta name="author" content="Colégio Neck">
     <meta name="theme-color" content="#1e3a8a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://colegioneck.com.br/">
+    <meta property="og:title" content="Colégio Neck - Matrículas Abertas | Vagas Limitadas">
+    <meta property="og:description" content="Educação completa com atividades extracurriculares: Balé, Judô, Libras, Inglês, Maker e muito mais. Desde 1996 em Poá-SP.">
+    <meta property="og:image" content="https://colegioneck.com.br/assets/images/flyer-matriculas-abertas.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Colégio Neck">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://colegioneck.com.br/">
+    <meta name="twitter:title" content="Colégio Neck - Matrículas Abertas">
+    <meta name="twitter:description" content="Educação completa com atividades extracurriculares. Desde 1996 em Poá-SP.">
+    <meta name="twitter:image" content="https://colegioneck.com.br/assets/images/flyer-matriculas-abertas.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://colegioneck.com.br/">
+    
     <title>Colégio Neck - Matrículas Abertas | Vagas Limitadas</title>
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Colégio Neck",
+        "description": "Colégio particular com educação completa e atividades extracurriculares: Balé, Judô, Libras, Inglês, Maker e muito mais.",
+        "url": "https://colegioneck.com.br",
+        "logo": "https://colegioneck.com.br/assets/images/logo-colegio-neck.png",
+        "image": "https://colegioneck.com.br/assets/images/flyer-matriculas-abertas.jpg",
+        "foundingDate": "1996",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Florianópolis, 516",
+            "addressLocality": "Cidade Kemel",
+            "addressRegion": "SP",
+            "postalCode": "08554-110",
+            "addressCountry": "BR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-11-46397-7768",
+            "contactType": "customer service",
+            "areaServed": "BR",
+            "availableLanguage": "pt-BR"
+        },
+        "sameAs": [
+            "https://www.facebook.com/colegioneck",
+            "https://www.instagram.com/colegioneck/"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "name": "Matrículas Abertas",
+            "description": "Vagas limitadas para o ano letivo"
+        }
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="assets/images/logo-colegio-neck.png" as="image">
     
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -56,16 +120,65 @@
             <div class="header-content">
                 <div class="logo-container">
                     <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
-                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img" loading="eager" width="150" height="50">
                     </a>
                 </div>
                 <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
                     <a href="index.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Home</a>
-                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
-                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
-                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
-                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
-                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    
+                    <!-- Dropdown Institucional -->
+                    <div class="nav-dropdown">
+                        <a href="#" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Institucional</a>
+                        <div class="dropdown-menu">
+                            <a href="sobre-nos.html">Sobre Nós</a>
+                            <a href="historia.html">Nossa História</a>
+                            <a href="educacao.html">Educação</a>
+                            <a href="metodologia.html">Metodologia</a>
+                            <a href="galeria.html">Galeria</a>
+                            <a href="depoimentos.html">Depoimentos</a>
+                            <a href="premios.html">Prêmios</a>
+                            <a href="parceiros.html">Parceiros</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Dropdown Serviços -->
+                    <div class="nav-dropdown">
+                        <a href="#" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Serviços</a>
+                        <div class="dropdown-menu">
+                            <a href="area-aluno.html">Área do Aluno</a>
+                            <a href="portal-pais.html">Portal dos Pais</a>
+                            <a href="calculadora.html">Calculadora</a>
+                            <a href="horarios.html">Horários</a>
+                            <a href="cardapio.html">Cardápio</a>
+                            <a href="downloads.html">Downloads</a>
+                            <a href="agendamento.html">Agendar Visita</a>
+                            <a href="biblioteca-virtual.html">Biblioteca Virtual</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Dropdown Informações -->
+                    <div class="nav-dropdown">
+                        <a href="#" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Informações</a>
+                        <div class="dropdown-menu">
+                            <a href="blog.html">Blog</a>
+                            <a href="eventos.html">Eventos</a>
+                            <a href="faq.html">FAQ</a>
+                            <a href="calendario.html">Calendário</a>
+                            <a href="quiz.html">Quiz</a>
+                            <a href="newsletter.html">Newsletter</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Dropdown Contato -->
+                    <div class="nav-dropdown">
+                        <a href="#" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Contato</a>
+                        <div class="dropdown-menu">
+                            <a href="chat.html">Fale Conosco</a>
+                            <a href="mapa.html">Localização</a>
+                            <a href="trabalhe-conosco.html">Trabalhe Conosco</a>
+                        </div>
+                    </div>
+                    
                     <a href="#formulario" class="btn-cta-header">Matricule agora</a>
                 </nav>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -97,7 +210,7 @@
             <div class="hero-content">
                 <div class="hero-image">
                     <!-- CONFIGURE: Substitua pelo caminho da sua imagem criativa do flyer -->
-                    <img src="assets/images/flyer-matriculas-abertas.jpg" alt="Matrículas Abertas" class="hero-img" loading="eager">
+                    <img src="assets/images/flyer-matriculas-abertas.jpg" alt="Matrículas Abertas" class="hero-img" loading="eager" width="1200" height="800">
                 </div>
                 <div class="hero-text">
                     <h1 class="hero-headline">MATRÍCULAS ABERTAS -Vagas limitadas!</h1>
@@ -270,79 +383,19 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3 class="footer-logo-text">Colégio Neck</h3>
-                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
-                </div>
-                
-                <div class="footer-links-grid">
-                    <div class="footer-links-column">
-                        <h4>Institucional</h4>
-                        <ul>
-                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
-                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
-                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
-                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-links-column">
-                        <h4>Serviços</h4>
-                        <ul>
-                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
-                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
-                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
-                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-links-column">
-                        <h4>Informações</h4>
-                        <ul>
-                            <li><a href="blog.html" class="footer-link">Blog</a></li>
-                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
-                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
-                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-links-column">
-                        <h4>Contato</h4>
-                        <ul>
-                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
-                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
-                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
-                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="footer-info">
-                    <div class="footer-address">
-                        <h3>Endereço</h3>
-                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
-                    </div>
-                    <div class="footer-contact">
-                        <h3>Contato</h3>
-                        <p>
-                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
-                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
+    <!-- Componentes Header e Footer -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    <script src="assets/js/dropdown-menu.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
+    
+    <!-- Scripts da página -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/conversion-tools.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
+    <script src="assets/js/chat-widget.js"></script>
 </body>
 </html>

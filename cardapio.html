@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Cardápio Semanal - Colégio Neck. Confira o cardápio da cantina e refeitório.">
+    <title>Cardápio - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .menu-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .menu-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary-blue);
+            background: white;
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-tab.active {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .menu-content {
+            display: none;
+        }
+        
+        .menu-content.active {
+            display: block;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .menu-day-header {
+            background: var(--color-primary-blue);
+            color: white;
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .menu-day-header h3 {
+            color: white;
+            margin: 0;
+        }
+        
+        .menu-items {
+            padding: var(--spacing-lg);
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item-name {
+            flex: 1;
+        }
+        
+        .menu-item-name h4 {
+            color: var(--color-gray-900);
+            margin-bottom: 0.25rem;
+        }
+        
+        .menu-item-name p {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .menu-item-icon {
+            font-size: 2rem;
+            margin-right: var(--spacing-md);
+        }
+        
+        .menu-note {
+            background: var(--color-gray-50);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-xl);
+            text-align: center;
+            color: var(--color-gray-700);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="sobre-nos.html">Sobre Nós</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="educacao.html">Educação</a>
+            <a href="area-aluno.html">Área do Aluno</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Cardápio Semanal</h1>
+            <p>Alimentação saudável e balanceada para nossos alunos</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-tab="semana1">Semana 1</button>
+                <button class="menu-tab" data-tab="semana2">Semana 2</button>
+                <button class="menu-tab" data-tab="semana3">Semana 3</button>
+                <button class="menu-tab" data-tab="semana4">Semana 4</button>
+            </div>
+            
+            <!-- Semana 1 -->
+            <div class="menu-content active" id="semana1">
+                <div class="menu-card">
+                    <div class="menu-day-header">
+                        <h3>Segunda-feira</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍝</div>
+                            <div class="menu-item-name">
+                                <h4>Almoço</h4>
+                                <p>Macarronada com molho de tomate, frango grelhado e salada verde</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍌</div>
+                            <div class="menu-item-name">
+                                <h4>Lanche</h4>
+                                <p>Banana, biscoito integral e suco natural</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-day-header">
+                        <h3>Terça-feira</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍛</div>
+                            <div class="menu-item-name">
+                                <h4>Almoço</h4>
+                                <p>Arroz, feijão, carne moída, batata frita e salada de legumes</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍎</div>
+                            <div class="menu-item-name">
+                                <h4>Lanche</h4>
+                                <p>Maçã, pão com requeijão e água</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-day-header">
+                        <h3>Quarta-feira</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍲</div>
+                            <div class="menu-item-name">
+                                <h4>Almoço</h4>
+                                <p>Sopa de legumes com frango e pão</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍊</div>
+                            <div class="menu-item-name">
+                                <h4>Lanche</h4>
+                                <p>Laranja, bolacha e suco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-day-header">
+                        <h3>Quinta-feira</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍗</div>
+                            <div class="menu-item-name">
+                                <h4>Almoço</h4>
+                                <p>Arroz, feijão, frango assado, purê de batata e salada</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍇</div>
+                            <div class="menu-item-name">
+                                <h4>Lanche</h4>
+                                <p>Uva, iogurte e água</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-day-header">
+                        <h3>Sexta-feira</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🐟</div>
+                            <div class="menu-item-name">
+                                <h4>Almoço</h4>
+                                <p>Arroz, feijão, peixe grelhado, legumes refogados e salada</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-icon">🍓</div>
+                            <div class="menu-item-name">
+                                <h4>Lanche</h4>
+                                <p>Morango, bolo caseiro e suco natural</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Semana 2, 3, 4 (estrutura similar) -->
+            <div class="menu-content" id="semana2">
+                <div class="menu-note">
+                    <p><strong>Cardápio em atualização.</strong> Em breve disponibilizaremos o cardápio completo das semanas seguintes.</p>
+                </div>
+            </div>
+            
+            <div class="menu-content" id="semana3">
+                <div class="menu-note">
+                    <p><strong>Cardápio em atualização.</strong> Em breve disponibilizaremos o cardápio completo das semanas seguintes.</p>
+                </div>
+            </div>
+            
+            <div class="menu-content" id="semana4">
+                <div class="menu-note">
+                    <p><strong>Cardápio em atualização.</strong> Em breve disponibilizaremos o cardápio completo das semanas seguintes.</p>
+                </div>
+            </div>
+            
+            <div class="menu-note">
+                <p><strong>Observações:</strong> O cardápio pode sofrer alterações conforme disponibilidade de ingredientes. 
+                Informamos previamente sobre qualquer mudança. Respeitamos restrições alimentares e alergias - 
+                entre em contato conosco para mais informações.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tabs do cardápio
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Atualizar tabs
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Atualizar conteúdo
+                document.querySelectorAll('.menu-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+    </script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <!-- Componentes Header e Footer -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Exemplo de página usando componentes">
+    <title>Exemplo - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- 
+        O HEADER será inserido automaticamente pelo componente header-component.js
+        Não é necessário adicionar HTML do header aqui!
+    -->
+    
+    <!-- Conteúdo específico da página -->
+    <section style="margin-top: 80px; padding: var(--spacing-2xl) 0;">
+        <div class="container">
+            <h1>Exemplo de Página com Componentes</h1>
+            <p>Esta página usa os componentes de header e footer.</p>
+            <p>O header e footer são inseridos automaticamente via JavaScript.</p>
+        </div>
+    </section>
+    
+    <!-- 
+        O FOOTER será inserido automaticamente pelo componente footer-component.js
+        Não é necessário adicionar HTML do footer aqui!
+    -->
+    
+    <!-- Scripts -->
+    <!-- IMPORTANTE: Ordem dos scripts -->
+    <!-- 1. Componentes (inserem o HTML) -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    
+    <!-- 2. Funcionalidades (controlam os componentes) -->
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    
+    <!-- 3. Outros scripts da página (se necessário) -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+</body>
+</html>
+

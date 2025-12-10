@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Portal dos Pais - Colégio Neck. Acesse notas, comunicados, eventos e muito mais.">
+    <title>Portal dos Pais - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .portal-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .login-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: var(--color-gray-800);
+        }
+        
+        .form-group input {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .login-btn {
+            background: var(--gradient-cta);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .portal-dashboard {
+            display: none;
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .portal-dashboard.active {
+            display: block;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .dashboard-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .dashboard-card-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .dashboard-card h3 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .dashboard-card p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .dashboard-card-btn {
+            display: inline-block;
+            background: var(--color-primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-card-btn:hover {
+            background: var(--color-primary-blue-light);
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .forgot-password a {
+            color: var(--color-primary-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .login-container {
+                margin: 0 var(--spacing-md);
+                padding: var(--spacing-lg);
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="sobre-nos.html">Sobre Nós</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="educacao.html">Educação</a>
+            <a href="area-aluno.html">Área do Aluno</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Portal dos Pais</h1>
+            <p>Acesse informações sobre seu filho, notas, comunicados e muito mais</p>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="portal-section">
+        <div class="container">
+            <div class="login-container" id="login-container">
+                <h2 style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--color-gray-900);">
+                    Acesse seu Portal
+                </h2>
+                <form class="login-form" id="portal-login-form">
+                    <div class="form-group">
+                        <label for="portal-email">E-mail ou CPF</label>
+                        <input type="text" id="portal-email" name="email" required placeholder="seu@email.com ou CPF">
+                    </div>
+                    <div class="form-group">
+                        <label for="portal-password">Senha</label>
+                        <input type="password" id="portal-password" name="password" required placeholder="Sua senha">
+                    </div>
+                    <button type="submit" class="login-btn">Entrar</button>
+                    <div class="forgot-password">
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+                </form>
+                
+                <div style="margin-top: var(--spacing-xl); padding-top: var(--spacing-xl); border-top: 1px solid var(--color-gray-200); text-align: center;">
+                    <p style="color: var(--color-gray-600); margin-bottom: var(--spacing-sm);">
+                        Ainda não tem acesso?
+                    </p>
+                    <a href="chat.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">
+                        Entre em contato conosco
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Dashboard (oculto inicialmente) -->
+            <div class="portal-dashboard" id="portal-dashboard">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <h2 style="color: var(--color-gray-900); margin-bottom: var(--spacing-sm);">
+                        Bem-vindo, <span id="parent-name">Pai/Mãe</span>!
+                    </h2>
+                    <button id="logout-btn" style="background: var(--color-gray-200); color: var(--color-gray-800); padding: 0.5rem 1rem; border: none; border-radius: var(--radius-md); cursor: pointer; font-weight: 600;">
+                        Sair
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">📊</div>
+                        <h3>Boletim Online</h3>
+                        <p>Acesse as notas e avaliações do seu filho</p>
+                        <a href="#" class="dashboard-card-btn">Ver Boletim</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">📢</div>
+                        <h3>Comunicados</h3>
+                        <p>Fique por dentro de todos os comunicados</p>
+                        <a href="#" class="dashboard-card-btn">Ver Comunicados</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">📅</div>
+                        <h3>Calendário Escolar</h3>
+                        <p>Eventos, provas e atividades do mês</p>
+                        <a href="calendario.html" class="dashboard-card-btn">Ver Calendário</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">💰</div>
+                        <h3>Financeiro</h3>
+                        <p>Mensalidades, boletos e histórico</p>
+                        <a href="#" class="dashboard-card-btn">Acessar</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">📝</div>
+                        <h3>Frequência</h3>
+                        <p>Controle de presença e faltas</p>
+                        <a href="#" class="dashboard-card-btn">Ver Frequência</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">💬</div>
+                        <h3>Mensagens</h3>
+                        <p>Comunicação direta com professores</p>
+                        <a href="#" class="dashboard-card-btn">Abrir Mensagens</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulação de login (em produção, integrar com backend)
+        document.getElementById('portal-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('portal-email').value;
+            const password = document.getElementById('portal-password').value;
+            
+            // Simulação - em produção, fazer requisição ao backend
+            if (email && password) {
+                // Esconder login
+                document.getElementById('login-container').style.display = 'none';
+                
+                // Mostrar dashboard
+                document.getElementById('portal-dashboard').classList.add('active');
+                
+                // Atualizar nome (simulação)
+                document.getElementById('parent-name').textContent = email.split('@')[0];
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+        
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            document.getElementById('login-container').style.display = 'block';
+            document.getElementById('portal-dashboard').classList.remove('active');
+            document.getElementById('portal-login-form').reset();
+        });
+    </script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <!-- Componentes Header e Footer -->
+    <script src="assets/js/components/header-component.js"></script>
+    <script src="assets/js/components/footer-component.js"></script>
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
+</body>
+</html>
+

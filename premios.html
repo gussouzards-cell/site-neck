@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Galeria de Fotos - Colégio Neck. Conheça nossos espaços, atividades e momentos especiais.">
-    <title>Galeria - Colégio Neck</title>
+    <meta name="description" content="Prêmios e Reconhecimentos - Colégio Neck. Conheça nossas conquistas e certificações.">
+    <title>Prêmios - Colégio Neck</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,178 +29,90 @@
             margin-bottom: var(--spacing-sm);
         }
         
-        .gallery-section {
+        .awards-section {
             padding: var(--spacing-2xl) 0;
         }
         
-        .gallery-filters {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--color-primary-blue);
-            background: white;
-            color: var(--color-primary-blue);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--color-primary-blue);
-            color: white;
-        }
-        
-        .gallery-grid {
+        .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
         }
         
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
+        .award-card {
+            background: white;
+            padding: var(--spacing-xl);
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            aspect-ratio: 4/3;
-            cursor: pointer;
+            box-shadow: var(--shadow-lg);
             transition: all 0.3s ease;
+            text-align: center;
         }
         
-        .gallery-item:hover {
+        .award-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .award-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: var(--spacing-md);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: var(--spacing-sm);
-            }
-        }
-        
-        /* Instagram Section */
-        .instagram-section {
-            padding: var(--spacing-2xl) 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        
-        .instagram-header {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .instagram-header h2 {
-            color: var(--color-gray-900);
-            margin-bottom: var(--spacing-sm);
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-family: var(--font-heading);
-        }
-        
-        .instagram-header p {
-            color: var(--color-gray-600);
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .instagram-link {
+        .award-year {
             display: inline-block;
-            padding: 0.75rem 2rem;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white !important;
-            text-decoration: none;
-            border-radius: var(--radius-md);
+            background: var(--color-primary-blue-light);
+            color: var(--color-primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .award-card h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .award-card p {
+            color: var(--color-gray-700);
+            line-height: 1.7;
+        }
+        
+        .certifications-section {
+            background: var(--color-gray-50);
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .certification-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
             box-shadow: var(--shadow-md);
         }
         
-        .instagram-link:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        .certification-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
         }
         
-        .instagram-widget-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            padding: var(--spacing-md);
-            overflow: hidden;
-            min-height: 500px;
-        }
-        
-        /* Tagembed Widget Styling */
-        .tagembed-widget {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            min-height: 500px;
-        }
-        
-        .tagembed-widget iframe {
-            border: none !important;
-            border-radius: var(--radius-md);
+        .certification-card h4 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-xs);
         }
         
         @media (max-width: 768px) {
-            .instagram-widget-container {
-                padding: var(--spacing-sm);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .instagram-widget-container {
-                min-height: 400px;
-            }
-            
-            .tagembed-widget {
-                min-height: 400px;
+            .awards-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -218,7 +130,7 @@
                 <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
                     <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
                     <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
-                    <a href="galeria.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Galeria</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
                     <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
                     <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
                     <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
@@ -250,33 +162,132 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Galeria de Fotos</h1>
-            <p>Conheça nossos espaços, atividades e momentos especiais</p>
+            <h1>Prêmios e Reconhecimentos</h1>
+            <p>Nossas conquistas ao longo de mais de 28 anos de história</p>
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section class="instagram-section">
+    <!-- Awards Section -->
+    <section class="awards-section">
         <div class="container">
-            <div class="instagram-header">
-                <h2>Siga-nos no Instagram</h2>
-                <p>Acompanhe nosso dia a dia e os momentos especiais do Colégio Neck</p>
-                <a href="https://www.instagram.com/colegioneck/" target="_blank" rel="noopener" class="instagram-link">
-                    📷 @colegioneck
-                </a>
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                <h2 style="color: var(--color-gray-900); margin-bottom: var(--spacing-sm); font-size: clamp(1.75rem, 4vw, 2.5rem);">
+                    Nossos Prêmios
+                </h2>
+                <p style="color: var(--color-gray-600); font-size: 1.1rem;">
+                    Reconhecimento pela excelência em educação
+                </p>
             </div>
             
-            <!-- Instagram Feed Widget -->
-            <div class="instagram-widget-container">
-                <!-- Tagembed Widget - Feed do Instagram -->
-                <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="310821" data-website="1"></div>
-                <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <span class="award-year">2023</span>
+                    <h3>Melhor Escola da Região</h3>
+                    <p>
+                        Reconhecimento pela qualidade de ensino e inovação pedagógica na região de Poá.
+                    </p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">⭐</div>
+                    <span class="award-year">2022</span>
+                    <h3>Destaque em Inclusão</h3>
+                    <p>
+                        Prêmio por práticas inclusivas e acessibilidade na educação.
+                    </p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🎓</div>
+                    <span class="award-year">2021</span>
+                    <h3>Excelência Pedagógica</h3>
+                    <p>
+                        Reconhecimento pela metodologia inovadora e resultados acadêmicos.
+                    </p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🌱</div>
+                    <span class="award-year">2020</span>
+                    <h3>Escola Sustentável</h3>
+                    <p>
+                        Certificação por práticas ambientais e educação sustentável.
+                    </p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🤝</div>
+                    <span class="award-year">2019</span>
+                    <h3>Melhor Relacionamento com Pais</h3>
+                    <p>
+                        Prêmio pela comunicação e parceria com as famílias.
+                    </p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">💡</div>
+                    <span class="award-year">2018</span>
+                    <h3>Inovação Tecnológica</h3>
+                    <p>
+                        Reconhecimento pelo uso de tecnologia na educação.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery -->
-   
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                <h2 style="color: var(--color-gray-900); margin-bottom: var(--spacing-sm); font-size: clamp(1.75rem, 4vw, 2.5rem);">
+                    Certificações
+                </h2>
+                <p style="color: var(--color-gray-600); font-size: 1.1rem;">
+                    Certificações e credenciamentos que comprovam nossa qualidade
+                </p>
+            </div>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">✅</div>
+                    <h4>Credenciamento MEC</h4>
+                    <p>Autorizado pelo Ministério da Educação</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">📜</div>
+                    <h4>ISO 9001</h4>
+                    <p>Gestão de Qualidade</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">🌍</div>
+                    <h4>Escola Associada UNESCO</h4>
+                    <p>Rede de Escolas Associadas</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">🔒</div>
+                    <h4>LGPD Compliant</h4>
+                    <p>Proteção de Dados</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">♿</div>
+                    <h4>Acessibilidade</h4>
+                    <p>Estrutura adaptada</p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">🌿</div>
+                    <h4>Escola Verde</h4>
+                    <p>Sustentabilidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer" id="footer">
@@ -349,35 +360,19 @@
         </div>
     </footer>
 
-    <script>
-        // Filtro de galeria
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Atualizar botões ativos
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filtrar itens
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-    </script>
-    
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
     <!-- Componentes Header e Footer -->
     <script src="assets/js/components/header-component.js"></script>
     <script src="assets/js/components/footer-component.js"></script>
     <script src="assets/js/dropdown-menu.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp-float.js"></script>
+    <script src="assets/js/back-to-top.js"></script>
+    <script src="assets/js/breadcrumbs.js"></script>
+    <script src="assets/js/social-sharing.js"></script>
 </body>
 </html>
 

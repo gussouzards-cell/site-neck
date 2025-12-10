@@ -1,0 +1,30 @@
+# robots.txt para Colégio Neck
+# https://colegioneck.com.br/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://colegioneck.com.br/sitemap.xml
+
+# Bloquear arquivos de desenvolvimento
+Disallow: /update_*.py
+Disallow: /batch_update.py
+Disallow: /final_update.py
+Disallow: /update_navigation.js
+Disallow: /config-exemplo.js
+Disallow: /*.md
+
+# Permitir todos os recursos estáticos
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.gif
+Allow: /*.webp
+
+# Crawl-delay (opcional - remover se não necessário)
+# Crawl-delay: 1
+
