@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePhoneMask();
     initializeForm();
     initializeScrollEffects();
+    initializeMobileMenu();
 });
 
 /**
@@ -450,4 +451,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/**
+ * ============================================
+ * MENU MOBILE / HAMBÚRGUER
+ * ============================================
+ */
+function initializeMobileMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-content a');
+    
+    if (!menuToggle || !mobileMenu || !mobileMenuOverlay) {
+        return; // Elementos não existem, não inicializar
+    }
+    
+    // Toggle menu
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Fechar menu ao clicar no overlay
+    mobileMenuOverlay.addEventListener('click', function() {
+        closeMobileMenu();
+    });
+    
+    // Fechar menu ao clicar em um link
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    });
+    
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    function closeMobileMenu() {
+        menuToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Detectar página atual e destacar no menu mobile
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    mobileMenuLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
 
