@@ -481,22 +481,22 @@ a:hover {
 /* Desktop - Menu fixo visível */
 @media (min-width: 768px) {
     .menu-toggle {
-        display: none;
+        display: none !important;
     }
     
     .header-content nav {
-        display: flex;
+        display: flex !important;
     }
 }
 
 /* Mobile e Tablet - Menu hambúrguer */
 @media (max-width: 767px) {
     .menu-toggle {
-        display: flex;
+        display: flex !important;
     }
     
     .header-content nav {
-        display: none;
+        display: none !important;
     }
     
     .header-content {
@@ -537,14 +537,13 @@ a:hover {
         font-size: 1.1rem;
     }
     
+    /* Menu nav deve estar oculto em tablets também */
     .header-content nav {
-        gap: var(--spacing-xs);
-        font-size: 0.85rem;
+        display: none !important;
     }
     
-    .header-content nav a {
-        font-size: 0.85rem;
-        padding: 0.25rem 0.5rem;
+    .menu-toggle {
+        display: flex !important;
     }
     
     .btn-cta-header {

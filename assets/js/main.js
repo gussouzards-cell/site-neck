@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePhoneMask();
     initializeForm();
     initializeScrollEffects();
-    initializeMobileMenu();
+    // initializeMobileMenu(); // Removido - agora usando mobile-menu.js
 });
 
 /**
