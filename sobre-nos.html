@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Sobre Nós - Colégio Neck. Conheça nossa história, diretoria, coordenação e equipe pedagógica.">
+    <title>Sobre Nós - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .content-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--color-gray-50);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--color-primary-blue);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .team-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .team-card h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .team-role {
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .team-bio {
+            color: var(--color-gray-600);
+            line-height: 1.7;
+        }
+        
+        .history-timeline {
+            position: relative;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+        
+        .timeline-year {
+            flex-shrink: 0;
+            width: 100px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary-blue);
+            font-family: var(--font-heading);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--color-gold);
+        }
+        
+        .timeline-content h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .value-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="historia.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">História</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Sobre Nós</h1>
+            <p>Conheça a equipe que faz a diferença na educação do seu filho</p>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-gray-700); margin-bottom: var(--spacing-md);">
+                    Fundado em 1996, o Colégio Neck nasceu com a missão de oferecer uma educação de excelência, 
+                    formando cidadãos críticos, criativos e preparados para os desafios do futuro.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-gray-700);">
+                    Ao longo de mais de 25 anos, construímos uma trajetória sólida baseada em valores como respeito, 
+                    responsabilidade, inovação e compromisso com a qualidade educacional. Nossa proposta pedagógica 
+                    alia tradição e modernidade, preparando nossos alunos não apenas para o sucesso acadêmico, mas 
+                    para a vida em sociedade.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missão, Visão e Valores -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Missão, Visão e Valores</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Missão</h3>
+                    <p>Proporcionar educação de qualidade, formando cidadãos éticos, críticos e preparados para transformar a sociedade através do conhecimento e dos valores humanos.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">👁️</div>
+                    <h3>Visão</h3>
+                    <p>Ser reconhecido como referência em educação infantil e fundamental, destacando-se pela excelência pedagógica e formação integral dos alunos.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Valores</h3>
+                    <p>Respeito, ética, responsabilidade, inovação, compromisso com a qualidade e valorização das relações humanas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diretoria -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Diretoria</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">DN</div>
+                    <h3>Diretor Nome</h3>
+                    <p class="team-role">Diretor Geral</p>
+                    <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Experiência de mais de 20 anos em educação.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">VN</div>
+                    <h3>Vice-Diretor Nome</h3>
+                    <p class="team-role">Vice-Diretor</p>
+                    <p class="team-bio">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Especialista em gestão educacional e desenvolvimento pedagógico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coordenação -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Coordenação Pedagógica</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">CP</div>
+                    <h3>Coordenadora Pedagógica</h3>
+                    <p class="team-role">Coordenação Geral</p>
+                    <p class="team-bio">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Pedagoga com especialização em educação infantil e fundamental.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">CE</div>
+                    <h3>Coordenadora Educação Infantil</h3>
+                    <p class="team-role">Coordenação Infantil</p>
+                    <p class="team-bio">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">CF</div>
+                    <h3>Coordenador Fundamental</h3>
+                    <p class="team-role">Coordenação Fundamental</p>
+                    <p class="team-bio">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipe -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-gray-700); margin-bottom: var(--spacing-lg);">
+                    Contamos com uma equipe de profissionais altamente qualificados e comprometidos com a educação. 
+                    Nossos professores são especialistas em suas áreas, com formação continuada e paixão pelo ensino.
+                </p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">👨‍🏫</div>
+                        <h3>Professores Qualificados</h3>
+                        <p>Equipe formada por profissionais com graduação e especialização em suas áreas de atuação.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Formação Continuada</h3>
+                        <p>Investimento constante em capacitação e atualização pedagógica de toda a equipe.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💼</div>
+                        <h3>Suporte Pedagógico</h3>
+                        <p>Equipe de apoio dedicada ao desenvolvimento integral dos alunos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

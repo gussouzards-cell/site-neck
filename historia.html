@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="História do Colégio Neck - Linha do Tempo desde 1996">
+    <title>História - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .timeline-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-white);
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-primary-blue) 0%, var(--color-gold) 100%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+        }
+        
+        .timeline-dot {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--color-gold);
+            border: 4px solid var(--color-primary-blue);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary-blue);
+            z-index: 2;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--color-gold);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-heading);
+        }
+        
+        .timeline-content h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content p {
+            color: var(--color-gray-700);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .milestone-badge {
+            display: inline-block;
+            background: var(--color-gold);
+            color: var(--color-primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-dot {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .timeline-item {
+                gap: var(--spacing-md);
+            }
+            
+            .timeline-content {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="historia.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">História</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nossa História</h1>
+            <p>Uma trajetória de mais de 25 anos dedicados à educação</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">1996</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">FUNDAÇÃO</span>
+                        <h3>O Início de uma Jornada</h3>
+                        <p>O Colégio Neck foi fundado com a missão de oferecer educação de qualidade na região de Poá. Começamos com uma proposta inovadora focada no desenvolvimento integral dos alunos, combinando excelência acadêmica com valores humanos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2000</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">EXPANSÃO</span>
+                        <h3>Primeira Expansão</h3>
+                        <p>Após 4 anos de crescimento constante, expandimos nossa estrutura física e ampliamos o número de turmas. Implementamos novas metodologias pedagógicas e investimos em tecnologia educacional.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2005</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">RECONHECIMENTO</span>
+                        <h3>Reconhecimento Regional</h3>
+                        <p>Ganhamos reconhecimento pela qualidade do ensino e pelos resultados obtidos pelos nossos alunos. Iniciamos parcerias com instituições de ensino superior e programas de extensão educacional.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2010</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">INOVAÇÃO</span>
+                        <h3>Era Digital</h3>
+                        <p>Implementamos laboratórios de informática e iniciamos a integração de tecnologia no processo de ensino-aprendizagem. Criamos programas de educação financeira e atividades maker para desenvolver habilidades do século XXI.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2015</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">ATIVIDADES EXTRAS</span>
+                        <h3>Ampliação de Atividades</h3>
+                        <p>Expandimos nosso leque de atividades extracurriculares, incluindo Balé, Judô, Libras, Inglês e Maker. Essas atividades complementam a formação acadêmica e desenvolvem habilidades socioemocionais.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2020</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">ADAPTAÇÃO</span>
+                        <h3>Educação Híbrida</h3>
+                        <p>Diante dos desafios globais, adaptamos nossa metodologia para oferecer ensino híbrido de qualidade. Investimos em plataformas digitais e capacitação da equipe para garantir a continuidade do aprendizado.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot">2024</div>
+                    <div class="timeline-content">
+                        <span class="milestone-badge">PRESENTE</span>
+                        <h3>Olhando para o Futuro</h3>
+                        <p>Hoje, continuamos nossa missão de formar cidadãos preparados para o futuro. Com mais de 25 anos de experiência, mantemos nosso compromisso com a excelência educacional, inovação e desenvolvimento integral dos alunos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

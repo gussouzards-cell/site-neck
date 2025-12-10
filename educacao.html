@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Nossa Proposta Educacional - Colégio Neck. Conheça a importância das matérias e nossa metodologia.">
+    <title>Educação - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .content-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--color-gray-50);
+        }
+        
+        .subject-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-lg);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-primary-blue);
+        }
+        
+        .subject-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-xl);
+            border-left-color: var(--color-gold);
+        }
+        
+        .subject-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .subject-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+        }
+        
+        .subject-header h3 {
+            color: var(--color-primary-blue);
+            margin: 0;
+            flex: 1;
+        }
+        
+        .subject-content p {
+            color: var(--color-gray-700);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .methodology-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        
+        .methodology-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        @media (min-width: 768px) {
+            .methodology-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .methodology-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="historia.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">História</a>
+                    <a href="educacao.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Educação</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nossa Proposta Educacional</h1>
+            <p>Formação integral através do conhecimento e valores</p>
+        </div>
+    </section>
+
+    <!-- Proposta Pedagógica -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Proposta Pedagógica</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-gray-700); margin-bottom: var(--spacing-md);">
+                    No Colégio Neck, acreditamos que a educação vai além da transmissão de conhecimentos. 
+                    Nossa proposta pedagógica é fundamentada no desenvolvimento integral do aluno, promovendo 
+                    o crescimento intelectual, emocional, social e físico.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-gray-700);">
+                    Utilizamos metodologias ativas que colocam o aluno como protagonista do seu aprendizado, 
+                    estimulando a curiosidade, o pensamento crítico e a criatividade. Valorizamos a construção 
+                    do conhecimento através de experiências práticas, projetos interdisciplinares e atividades 
+                    que conectam o aprendizado à realidade.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importância das Matérias -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">A Importância de Cada Matéria</h2>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">📚</div>
+                    <h3>Língua Portuguesa</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A Língua Portuguesa é fundamental para o desenvolvimento da comunicação, expressão e 
+                        interpretação. Através dela, os alunos aprendem a se comunicar de forma clara e eficaz, 
+                        desenvolvem o pensamento crítico e adquirem habilidades essenciais para a leitura e escrita. 
+                        Dominar a língua materna é o primeiro passo para o sucesso em todas as outras áreas do conhecimento.
+                    </p>
+                    <p>
+                        Trabalhamos com projetos de leitura, produção textual, gramática contextualizada e análise 
+                        literária, sempre conectando o aprendizado à realidade dos alunos.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">🔢</div>
+                    <h3>Matemática</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A Matemática desenvolve o raciocínio lógico, a capacidade de resolver problemas e o pensamento 
+                        abstrato. É uma ferramenta essencial para compreender o mundo ao nosso redor, desde operações 
+                        básicas do dia a dia até conceitos mais complexos que serão fundamentais em diversas áreas profissionais.
+                    </p>
+                    <p>
+                        Nossa abordagem prioriza a resolução de problemas reais, jogos matemáticos, atividades práticas 
+                        e a conexão entre teoria e aplicação, tornando a matemática significativa e interessante.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">🔬</div>
+                    <h3>Ciências</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        As Ciências despertam a curiosidade e o espírito investigativo, ensinando os alunos a observar, 
+                        questionar, experimentar e concluir. Através do método científico, desenvolvem habilidades de 
+                        pesquisa, análise e pensamento crítico, essenciais para compreender fenômenos naturais e tecnológicos.
+                    </p>
+                    <p>
+                        Realizamos experimentos práticos, saídas de campo, projetos de investigação e atividades que 
+                        conectam a ciência ao cotidiano, estimulando a curiosidade científica desde cedo.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">🌎</div>
+                    <h3>Geografia</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A Geografia ajuda os alunos a compreender o espaço em que vivem, as relações entre sociedade 
+                        e natureza, e a diversidade do planeta. Desenvolve a consciência espacial, ambiental e cidadã, 
+                        essencial para formar cidadãos conscientes e responsáveis.
+                    </p>
+                    <p>
+                        Trabalhamos com mapas, estudos do meio, análise de paisagens e discussões sobre questões 
+                        ambientais e sociais, sempre relacionando o local ao global.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">📜</div>
+                    <h3>História</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A História permite compreender o passado para entender o presente e projetar o futuro. Desenvolve 
+                        a consciência histórica, o senso crítico e a capacidade de análise de processos sociais, 
+                        formando cidadãos que compreendem sua identidade e seu papel na sociedade.
+                    </p>
+                    <p>
+                        Utilizamos fontes históricas, visitas a museus, projetos de pesquisa e discussões que conectam 
+                        o passado ao presente, tornando a história viva e significativa.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">🌍</div>
+                    <h3>Inglês</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        O Inglês é essencial na era da globalização, abrindo portas para comunicação internacional, 
+                        acesso à informação e oportunidades profissionais. Além de ser uma ferramenta de comunicação, 
+                        o aprendizado de uma segunda língua desenvolve habilidades cognitivas e amplia horizontes culturais.
+                    </p>
+                    <p>
+                        Nossas aulas são dinâmicas, com foco em comunicação, uso de tecnologia, atividades lúdicas e 
+                        imersão cultural, preparando os alunos para usar o inglês de forma prática e natural.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">🎨</div>
+                    <h3>Artes</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        As Artes desenvolvem a criatividade, a sensibilidade estética e a expressão pessoal. Através 
+                        de diferentes linguagens artísticas, os alunos exploram sua criatividade, desenvolvem habilidades 
+                        motoras e aprendem a se expressar de forma única e autêntica.
+                    </p>
+                    <p>
+                        Trabalhamos com diversas técnicas e materiais, visitas a exposições, projetos artísticos e 
+                        integração com outras áreas do conhecimento, valorizando a arte como forma de expressão e comunicação.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">💻</div>
+                    <h3>Informática</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A Informática é fundamental na preparação dos alunos para o futuro digital. Desenvolve habilidades 
+                        tecnológicas, pensamento computacional e competências essenciais para o século XXI. Além disso, 
+                        a tecnologia é uma ferramenta poderosa para o aprendizado em todas as áreas.
+                    </p>
+                    <p>
+                        Ensinamos programação básica, uso responsável da internet, criação de conteúdo digital e 
+                        integração da tecnologia ao aprendizado, preparando os alunos para serem criadores e não apenas 
+                        consumidores de tecnologia.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-header">
+                    <div class="subject-icon">💰</div>
+                    <h3>Educação Financeira</h3>
+                </div>
+                <div class="subject-content">
+                    <p>
+                        A Educação Financeira é essencial para formar cidadãos conscientes e responsáveis com suas 
+                        finanças. Ensina conceitos de poupança, investimento, consumo consciente e planejamento financeiro, 
+                        habilidades fundamentais para a vida adulta e para o bem-estar pessoal e familiar.
+                    </p>
+                    <p>
+                        Trabalhamos com projetos práticos, simulações, jogos educativos e discussões sobre consumo 
+                        consciente, sempre de forma lúdica e adequada à idade dos alunos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodologia -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Metodologia</h2>
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="methodology-icon">🎯</div>
+                    <h3>Aprendizado Ativo</h3>
+                    <p>O aluno é protagonista do seu aprendizado, participando ativamente da construção do conhecimento através de projetos, experimentos e atividades práticas.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">🤝</div>
+                    <h3>Trabalho em Equipe</h3>
+                    <p>Valorizamos a colaboração e o trabalho em grupo, desenvolvendo habilidades sociais e de comunicação essenciais para a vida.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">💡</div>
+                    <h3>Pensamento Crítico</h3>
+                    <p>Estimulamos a capacidade de questionar, analisar e formar opiniões fundamentadas, preparando alunos para serem cidadãos conscientes.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">🌱</div>
+                    <h3>Desenvolvimento Integral</h3>
+                    <p>Além do conhecimento acadêmico, trabalhamos o desenvolvimento emocional, social e físico dos alunos.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">🔗</div>
+                    <h3>Interdisciplinaridade</h3>
+                    <p>Conectamos diferentes áreas do conhecimento através de projetos que mostram a relação entre as matérias e a realidade.</p>
+                </div>
+                <div class="methodology-card">
+                    <div class="methodology-icon">📊</div>
+                    <h3>Avaliação Contínua</h3>
+                    <p>Acompanhamos o desenvolvimento de cada aluno de forma individualizada, identificando necessidades e potencialidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
