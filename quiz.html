@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Quiz Interativo - Colégio Neck. Teste seus conhecimentos sobre nossa escola!">
+    <title>Quiz - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .quiz-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .quiz-progress {
+            height: 8px;
+            background: var(--color-gray-200);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-lg);
+            overflow: hidden;
+        }
+        
+        .quiz-progress-bar {
+            height: 100%;
+            background: var(--gradient-cta);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .quiz-question {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .quiz-question h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.3rem;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .quiz-option {
+            padding: var(--spacing-md);
+            border: 3px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            font-weight: 500;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--color-primary-blue);
+            background: var(--color-gray-50);
+        }
+        
+        .quiz-option.selected {
+            background: var(--color-primary-blue-light);
+            color: white;
+            border-color: var(--color-primary-blue);
+        }
+        
+        .quiz-option.correct {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        
+        .quiz-option.wrong {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+        }
+        
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .quiz-result {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .quiz-score {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--color-primary-blue);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .quiz-message {
+            font-size: 1.2rem;
+            color: var(--color-gray-700);
+            margin-bottom: var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>🎯 Quiz Interativo</h1>
+            <p>Teste seus conhecimentos sobre o Colégio Neck!</p>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="quiz-progress"></div>
+                </div>
+                
+                <div id="quiz-content">
+                    <!-- Conteúdo será inserido via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/quiz.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

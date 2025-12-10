@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Área do Aluno - Colégio Neck. Jogos educativos e atividades interativas.">
+    <title>Área do Aluno - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '🎮';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .games-section {
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--color-gold);
+        }
+        
+        .game-header {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .game-header h3 {
+            color: white;
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.5rem;
+        }
+        
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .game-content {
+            padding: var(--spacing-xl);
+        }
+        
+        .game-description {
+            color: var(--color-gray-700);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            line-height: 1.7;
+        }
+        
+        .game-container {
+            background: var(--color-gray-50);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .game-btn {
+            background: var(--gradient-cta);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            margin: var(--spacing-sm);
+            min-width: 150px;
+        }
+        
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .game-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .score-display {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary-blue);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-sm);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .memory-card {
+            aspect-ratio: 1;
+            background: var(--color-primary-blue);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .memory-card.flipped {
+            background: var(--color-gold);
+        }
+        
+        .memory-card.matched {
+            background: var(--color-teal);
+            cursor: default;
+        }
+        
+        .math-question {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary-blue);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .math-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .math-option {
+            padding: var(--spacing-md);
+            background: white;
+            border: 3px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .math-option:hover {
+            border-color: var(--color-primary-blue);
+            transform: scale(1.05);
+        }
+        
+        .math-option.correct {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        
+        .math-option.wrong {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+        }
+        
+        .word-input {
+            padding: var(--spacing-md);
+            font-size: 1.2rem;
+            border: 3px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .word-input:focus {
+            outline: none;
+            border-color: var(--color-primary-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+        
+        .word-hint {
+            font-size: 1.1rem;
+            color: var(--color-gray-600);
+            margin: var(--spacing-md) 0;
+            font-style: italic;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .color-box {
+            aspect-ratio: 1;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            border: 4px solid white;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .color-box:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .color-box.selected {
+            border-color: var(--color-gold);
+            transform: scale(1.15);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .games-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .memory-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-xs);
+            }
+            
+            .math-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-palette {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>🎮 Área do Aluno</h1>
+            <p style="position: relative; z-index: 1;">Jogos educativos e atividades divertidas para aprender brincando!</p>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section">
+        <div class="container">
+            <h2 class="section-title">Jogos Educativos</h2>
+            
+            <div class="games-grid">
+                <!-- Jogo da Memória -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">🧠</div>
+                        <h3>Jogo da Memória</h3>
+                        <p>Encontre os pares iguais!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Clique nas cartas para encontrar os pares. Desenvolva sua memória e concentração!</p>
+                        <div class="game-container" id="memory-game">
+                            <div class="score-display">Pontos: <span id="memory-score">0</span></div>
+                            <div class="memory-grid" id="memory-grid"></div>
+                            <button class="game-btn" onclick="initMemoryGame()">Novo Jogo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jogo de Matemática -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">🔢</div>
+                        <h3>Matemática Divertida</h3>
+                        <p>Resolva as contas!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Escolha a resposta correta para cada operação matemática!</p>
+                        <div class="game-container" id="math-game">
+                            <div class="score-display">Pontos: <span id="math-score">0</span></div>
+                            <div class="math-question" id="math-question">2 + 2 = ?</div>
+                            <div class="math-options" id="math-options"></div>
+                            <button class="game-btn" onclick="nextMathQuestion()" id="next-math-btn" style="display: none;">Próxima</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jogo de Palavras -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">📝</div>
+                        <h3>Forme a Palavra</h3>
+                        <p>Complete as palavras!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Digite a palavra correta baseada na dica!</p>
+                        <div class="game-container" id="word-game">
+                            <div class="score-display">Pontos: <span id="word-score">0</span></div>
+                            <div class="word-hint" id="word-hint">Dica aparecerá aqui</div>
+                            <input type="text" class="word-input" id="word-input" placeholder="Digite a palavra">
+                            <button class="game-btn" onclick="checkWord()">Verificar</button>
+                            <button class="game-btn" onclick="nextWord()" style="display: none;" id="next-word-btn">Próxima</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jogo de Cores -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">🎨</div>
+                        <h3>Encontre a Cor</h3>
+                        <p>Clique na cor correta!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Escolha a cor que corresponde ao nome mostrado!</p>
+                        <div class="game-container" id="color-game">
+                            <div class="score-display">Pontos: <span id="color-score">0</span></div>
+                            <div class="math-question" id="color-name" style="font-size: 1.8rem;">AZUL</div>
+                            <div class="color-palette" id="color-palette"></div>
+                            <button class="game-btn" onclick="nextColor()" id="next-color-btn" style="display: none;">Próxima</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contador -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">🔢</div>
+                        <h3>Contador</h3>
+                        <p>Conte os objetos!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Clique nos objetos para contar. Desenvolva suas habilidades numéricas!</p>
+                        <div class="game-container" id="counter-game">
+                            <div class="score-display">Contagem: <span id="counter-display">0</span></div>
+                            <div style="font-size: 3rem; margin: var(--spacing-lg) 0;" id="counter-objects">🍎🍎🍎</div>
+                            <button class="game-btn" onclick="addCounter()">+1</button>
+                            <button class="game-btn" onclick="resetCounter()">Resetar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desenho Livre -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">✏️</div>
+                        <h3>Desenho Livre</h3>
+                        <p>Solte a criatividade!</p>
+                    </div>
+                    <div class="game-content">
+                        <p class="game-description">Desenhe livremente e desenvolva sua criatividade!</p>
+                        <div class="game-container" id="draw-game" style="padding: var(--spacing-sm);">
+                            <canvas id="draw-canvas" style="border: 3px solid var(--color-gray-300); border-radius: var(--radius-md); background: white; cursor: crosshair; max-width: 100%; touch-action: none;"></canvas>
+                            <div style="margin-top: var(--spacing-md); display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center;">
+                                <button class="game-btn" onclick="clearCanvas()" style="min-width: auto; padding: 0.75rem 1.5rem;">Limpar</button>
+                                <input type="color" id="draw-color" value="#000000" style="width: 60px; height: 50px; border: none; border-radius: var(--radius-sm); cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/games.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

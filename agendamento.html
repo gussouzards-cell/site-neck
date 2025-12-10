@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Agende sua Visita - Colégio Neck. Agende uma visita para conhecer nossa escola.">
+    <title>Agende sua Visita - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .appointment-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .appointment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .time-slot {
+            padding: var(--spacing-sm);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .time-slot:hover {
+            border-color: var(--color-primary-blue);
+            background: var(--color-gray-50);
+        }
+        
+        .time-slot.selected {
+            background: var(--color-primary-blue);
+            color: white;
+            border-color: var(--color-primary-blue);
+        }
+        
+        .time-slot.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--color-gray-200);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>📅 Agende sua Visita</h1>
+            <p>Venha conhecer nossa escola pessoalmente</p>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section">
+        <div class="container">
+            <div class="appointment-container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: var(--spacing-xl);">Escolha Data e Horário</h2>
+                
+                <form class="lead-form" id="appointment-form">
+                    <div class="form-group">
+                        <label for="appointment-name">Nome Completo *</label>
+                        <input type="text" id="appointment-name" name="name" required placeholder="Seu nome completo">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointment-phone">Telefone/WhatsApp *</label>
+                            <input type="tel" id="appointment-phone" name="phone" required placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointment-email">E-mail *</label>
+                            <input type="email" id="appointment-email" name="email" required placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-date">Data Preferida *</label>
+                        <input type="date" id="appointment-date" name="date" required min="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Horário Preferido *</label>
+                        <div class="time-slots" id="time-slots">
+                            <div class="time-slot" data-time="08:00">08:00</div>
+                            <div class="time-slot" data-time="09:00">09:00</div>
+                            <div class="time-slot" data-time="10:00">10:00</div>
+                            <div class="time-slot" data-time="11:00">11:00</div>
+                            <div class="time-slot" data-time="14:00">14:00</div>
+                            <div class="time-slot" data-time="15:00">15:00</div>
+                            <div class="time-slot" data-time="16:00">16:00</div>
+                            <div class="time-slot" data-time="17:00">17:00</div>
+                        </div>
+                        <input type="hidden" id="selected-time" name="time" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-type">Tipo de Visita *</label>
+                        <select id="appointment-type" name="type" required>
+                            <option value="">Selecione</option>
+                            <option value="visita">Visita para conhecer a escola</option>
+                            <option value="reuniao">Reunião com coordenação</option>
+                            <option value="entrevista">Entrevista para matrícula</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-message">Mensagem (Opcional)</label>
+                        <textarea id="appointment-message" name="message" rows="4" placeholder="Alguma informação adicional sobre sua visita?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Confirmar Agendamento</button>
+                </form>
+                
+                <div id="appointment-success" class="success-message hidden">
+                    <div class="success-icon">✓</div>
+                    <h3>Agendamento Confirmado!</h3>
+                    <p>Entraremos em contato para confirmar os detalhes da sua visita.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data mínima (hoje)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointment-date').setAttribute('min', today);
+        
+        // Seleção de horário
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            slot.addEventListener('click', function() {
+                if (this.classList.contains('disabled')) return;
+                
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selected-time').value = this.getAttribute('data-time');
+            });
+        });
+        
+        // Máscara de telefone
+        document.getElementById('appointment-phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 10) {
+                value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+            } else {
+                value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+            }
+            e.target.value = value;
+        });
+        
+        // Submit do formulário
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('selected-time').value) {
+                alert('Por favor, selecione um horário.');
+                return;
+            }
+            
+            const formData = {
+                name: document.getElementById('appointment-name').value,
+                phone: document.getElementById('appointment-phone').value,
+                email: document.getElementById('appointment-email').value,
+                date: document.getElementById('appointment-date').value,
+                time: document.getElementById('selected-time').value,
+                type: document.getElementById('appointment-type').value,
+                message: document.getElementById('appointment-message').value
+            };
+            
+            // Criar mensagem para WhatsApp
+            const message = `Olá! Gostaria de agendar uma visita:\n\n` +
+                          `Nome: ${formData.name}\n` +
+                          `Telefone: ${formData.phone}\n` +
+                          `E-mail: ${formData.email}\n` +
+                          `Data: ${formData.date}\n` +
+                          `Horário: ${formData.time}\n` +
+                          `Tipo: ${formData.type}\n` +
+                          (formData.message ? `Mensagem: ${formData.message}` : '');
+            
+            const whatsappURL = `https://wa.me/551146397768?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // Mostrar sucesso
+            document.getElementById('appointment-form').style.display = 'none';
+            document.getElementById('appointment-success').classList.remove('hidden');
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

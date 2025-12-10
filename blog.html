@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Blog e Notícias - Colégio Neck. Fique por dentro das novidades, eventos e dicas educacionais.">
+    <title>Blog e Notícias - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .blog-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary-blue);
+            background: white;
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(59, 130, 246, 0.6) 100%);
+        }
+        
+        .blog-content {
+            padding: var(--spacing-xl);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            flex-wrap: wrap;
+        }
+        
+        .blog-category {
+            background: var(--color-gold);
+            color: var(--color-primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        
+        .blog-title {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+        
+        .blog-excerpt {
+            color: var(--color-gray-700);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+        }
+        
+        .blog-link {
+            color: var(--color-primary-blue-light);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: gap 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            gap: var(--spacing-sm);
+        }
+        
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-primary-blue); text-decoration: none; font-weight: 600;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>📰 Blog e Notícias</h1>
+            <p>Fique por dentro das novidades, eventos e dicas educacionais</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="noticias">Notícias</button>
+                <button class="filter-btn" data-filter="eventos">Eventos</button>
+                <button class="filter-btn" data-filter="dicas">Dicas</button>
+                <button class="filter-btn" data-filter="conquistas">Conquistas</button>
+            </div>
+            
+            <div class="blog-grid" id="blog-grid">
+                <!-- Notícia 1 -->
+                <article class="blog-card" data-category="noticias">
+                    <div class="blog-image">📢</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Notícias</span>
+                            <span>15 Dez 2024</span>
+                        </div>
+                        <h3 class="blog-title">Matrículas 2025 Abertas!</h3>
+                        <p class="blog-excerpt">Estamos com matrículas abertas para o ano letivo de 2025. Venha conhecer nossa proposta pedagógica e garantir a vaga do seu filho. Vagas limitadas!</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+
+                <!-- Notícia 2 -->
+                <article class="blog-card" data-category="eventos">
+                    <div class="blog-image">🎄</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Eventos</span>
+                            <span>10 Dez 2024</span>
+                        </div>
+                        <h3 class="blog-title">Festa de Natal 2024</h3>
+                        <p class="blog-excerpt">Nossa tradicional festa de Natal foi um sucesso! Alunos apresentaram lindas apresentações e celebramos juntos o espírito natalino. Confira as fotos!</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+
+                <!-- Notícia 3 -->
+                <article class="blog-card" data-category="dicas">
+                    <div class="blog-image">💡</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Dicas</span>
+                            <span>5 Dez 2024</span>
+                        </div>
+                        <h3 class="blog-title">Como Ajudar seu Filho nos Estudos em Casa</h3>
+                        <p class="blog-excerpt">Dicas práticas para os pais ajudarem seus filhos a desenvolverem hábitos de estudo saudáveis e eficazes em casa. Acompanhe a série completa!</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+
+                <!-- Notícia 4 -->
+                <article class="blog-card" data-category="conquistas">
+                    <div class="blog-image">🏆</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Conquistas</span>
+                            <span>1 Dez 2024</span>
+                        </div>
+                        <h3 class="blog-title">Alunos Destaque do Mês</h3>
+                        <p class="blog-excerpt">Parabenizamos nossos alunos que se destacaram em novembro! Dedicação, esforço e excelência acadêmica. Confira a lista completa dos homenageados.</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+
+                <!-- Notícia 5 -->
+                <article class="blog-card" data-category="eventos">
+                    <div class="blog-image">🔬</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Eventos</span>
+                            <span>25 Nov 2024</span>
+                        </div>
+                        <h3 class="blog-title">Feira de Ciências 2024</h3>
+                        <p class="blog-excerpt">Nossa Feira de Ciências foi um sucesso! Alunos apresentaram projetos incríveis e demonstraram muito conhecimento científico. Veja os destaques!</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+
+                <!-- Notícia 6 -->
+                <article class="blog-card" data-category="dicas">
+                    <div class="blog-image">📚</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Dicas</span>
+                            <span>20 Nov 2024</span>
+                        </div>
+                        <h3 class="blog-title">A Importância da Leitura na Infância</h3>
+                        <p class="blog-excerpt">Descubra como a leitura desde cedo desenvolve habilidades essenciais e como você pode incentivar seu filho a ler mais. Dicas práticas e eficazes.</p>
+                        <a href="#" class="blog-link">Ler mais →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filtro de blog
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

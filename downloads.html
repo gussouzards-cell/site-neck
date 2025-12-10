@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Downloads - Colégio Neck. Materiais, formulários e documentos para download.">
+    <title>Downloads - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .downloads-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .download-category {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .download-category h3 {
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--color-gold);
+        }
+        
+        .download-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+        
+        .download-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .download-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-secondary);
+            color: white;
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+        }
+        
+        .download-info {
+            flex: 1;
+        }
+        
+        .download-title {
+            font-weight: 600;
+            color: var(--color-primary-blue);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .download-description {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            background: var(--gradient-cta);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        @media (max-width: 768px) {
+            .download-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .download-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>📥 Downloads</h1>
+            <p>Materiais, formulários e documentos</p>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="downloads-section">
+        <div class="container">
+            <div class="downloads-grid">
+                <!-- Formulários -->
+                <div class="download-category">
+                    <h3>📋 Formulários</h3>
+                    <div class="download-item">
+                        <div class="download-icon">📄</div>
+                        <div class="download-info">
+                            <div class="download-title">Ficha de Matrícula</div>
+                            <div class="download-description">Formulário completo para matrícula de novos alunos</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Formulário será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">📝</div>
+                        <div class="download-info">
+                            <div class="download-title">Autorização de Saída</div>
+                            <div class="download-description">Formulário para autorizar saída antecipada do aluno</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Formulário será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">🏥</div>
+                        <div class="download-info">
+                            <div class="download-title">Ficha Médica</div>
+                            <div class="download-description">Formulário com informações médicas do aluno</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Formulário será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                </div>
+                
+                <!-- Calendários -->
+                <div class="download-category">
+                    <h3>📅 Calendários</h3>
+                    <div class="download-item">
+                        <div class="download-icon">🗓️</div>
+                        <div class="download-info">
+                            <div class="download-title">Calendário Escolar 2025</div>
+                            <div class="download-description">Calendário completo com todas as datas importantes do ano letivo</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Calendário será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">📆</div>
+                        <div class="download-info">
+                            <div class="download-title">Calendário de Avaliações</div>
+                            <div class="download-description">Datas de provas e avaliações por bimestre</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Calendário será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                </div>
+                
+                <!-- Guias -->
+                <div class="download-category">
+                    <h3>📚 Guias e Manuais</h3>
+                    <div class="download-item">
+                        <div class="download-icon">📖</div>
+                        <div class="download-info">
+                            <div class="download-title">Manual do Aluno</div>
+                            <div class="download-description">Guia completo com normas, regras e informações importantes</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Manual será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">👨‍👩‍👧</div>
+                        <div class="download-info">
+                            <div class="download-title">Guia para Pais</div>
+                            <div class="download-description">Dicas e orientações para acompanhar o desenvolvimento do seu filho</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Guia será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">🍽️</div>
+                        <div class="download-info">
+                            <div class="download-title">Cardápio do Mês</div>
+                            <div class="download-description">Cardápio mensal do refeitório com opções balanceadas</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Cardápio será disponibilizado em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                </div>
+                
+                <!-- Material Didático -->
+                <div class="download-category">
+                    <h3>📚 Material Didático</h3>
+                    <div class="download-item">
+                        <div class="download-icon">📗</div>
+                        <div class="download-info">
+                            <div class="download-title">Lista de Material 2025</div>
+                            <div class="download-description">Lista completa de material escolar necessário por série</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Lista será disponibilizada em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                    <div class="download-item">
+                        <div class="download-icon">📕</div>
+                        <div class="download-info">
+                            <div class="download-title">Livros Didáticos</div>
+                            <div class="download-description">Lista de livros adotados por série e disciplina</div>
+                        </div>
+                        <a href="#" class="download-btn" onclick="alert('Lista será disponibilizada em breve. Entre em contato!'); return false;">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

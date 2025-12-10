@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Calculadora de Mensalidade - Colégio Neck. Simule valores e condições de pagamento.">
+    <title>Calculadora de Mensalidade - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .calculator-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .result-box {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .result-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .result-details {
+            margin-top: var(--spacing-md);
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: var(--color-gold);
+            color: var(--color-primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            margin-top: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>💰 Calculadora de Mensalidade</h1>
+            <p>Simule valores e condições de pagamento</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: var(--spacing-xl);">Simule sua Mensalidade</h2>
+                
+                <form class="calculator-form" id="calculator-form">
+                    <div class="form-group">
+                        <label for="serie">Série/Ano *</label>
+                        <select id="serie" name="serie" required>
+                            <option value="">Selecione</option>
+                            <option value="bercario" data-value="450">Berçário - R$ 450,00</option>
+                            <option value="maternal" data-value="480">Maternal - R$ 480,00</option>
+                            <option value="pre1" data-value="520">Pré I - R$ 520,00</option>
+                            <option value="pre2" data-value="550">Pré II - R$ 550,00</option>
+                            <option value="1ano" data-value="580">1º Ano - R$ 580,00</option>
+                            <option value="2ano" data-value="600">2º Ano - R$ 600,00</option>
+                            <option value="3ano" data-value="620">3º Ano - R$ 620,00</option>
+                            <option value="4ano" data-value="640">4º Ano - R$ 640,00</option>
+                            <option value="5ano" data-value="660">5º Ano - R$ 660,00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="turno">Turno *</label>
+                        <select id="turno" name="turno" required>
+                            <option value="">Selecione</option>
+                            <option value="manha" data-multiplier="1">Manhã (sem acréscimo)</option>
+                            <option value="tarde" data-multiplier="1">Tarde (sem acréscimo)</option>
+                            <option value="integral" data-multiplier="1.4">Integral (+40%)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="irmaos">Quantos filhos já estudam aqui?</label>
+                        <select id="irmaos" name="irmaos">
+                            <option value="0">Nenhum (sem desconto)</option>
+                            <option value="1" data-discount="0.05">1 filho (5% de desconto)</option>
+                            <option value="2" data-discount="0.10">2 filhos (10% de desconto)</option>
+                            <option value="3" data-discount="0.15">3+ filhos (15% de desconto)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pagamento">Forma de Pagamento</label>
+                        <select id="pagamento" name="pagamento">
+                            <option value="avista" data-discount="0.10">À vista (10% desconto)</option>
+                            <option value="debito" data-discount="0.05">Débito automático (5% desconto)</option>
+                            <option value="cartao" data-discount="0">Cartão de crédito (sem desconto)</option>
+                            <option value="boleto" data-discount="0">Boleto (sem desconto)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="material" name="material" value="sim">
+                            <span>Incluir material didático (R$ 200,00/ano parcelado em 12x)</span>
+                        </label>
+                    </div>
+                    
+                    <button type="button" class="btn-submit" onclick="calculate()">Calcular Mensalidade</button>
+                </form>
+                
+                <div class="result-box" id="result-box">
+                    <h3 style="color: white; margin-bottom: var(--spacing-sm);">Valor da Mensalidade</h3>
+                    <div class="result-value" id="result-value">R$ 0,00</div>
+                    <div class="result-details" id="result-details"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculate() {
+            const serie = document.getElementById('serie');
+            const turno = document.getElementById('turno');
+            const irmaos = document.getElementById('irmaos');
+            const pagamento = document.getElementById('pagamento');
+            const material = document.getElementById('material');
+            
+            if (!serie.value || !turno.value) {
+                alert('Por favor, preencha série e turno.');
+                return;
+            }
+            
+            let baseValue = parseFloat(serie.options[serie.selectedIndex].dataset.value);
+            const turnoMultiplier = parseFloat(turno.options[turno.selectedIndex].dataset.multiplier);
+            baseValue *= turnoMultiplier;
+            
+            // Desconto por irmãos
+            const irmaosDiscount = parseFloat(irmaos.options[irmaos.selectedIndex].dataset.discount || 0);
+            baseValue *= (1 - irmaosDiscount);
+            
+            // Desconto por forma de pagamento
+            const pagamentoDiscount = parseFloat(pagamento.options[pagamento.selectedIndex].dataset.discount || 0);
+            baseValue *= (1 - pagamentoDiscount);
+            
+            // Material didático
+            let materialValue = 0;
+            if (material.checked) {
+                materialValue = 200 / 12; // Parcelado em 12x
+            }
+            
+            const total = baseValue + materialValue;
+            
+            // Exibir resultado
+            const resultBox = document.getElementById('result-box');
+            const resultValue = document.getElementById('result-value');
+            const resultDetails = document.getElementById('result-details');
+            
+            resultValue.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            let details = '';
+            if (irmaosDiscount > 0) {
+                details += `<div class="discount-badge">Desconto por irmãos aplicado!</div><br>`;
+            }
+            if (pagamentoDiscount > 0) {
+                details += `<div class="discount-badge">Desconto por forma de pagamento aplicado!</div><br>`;
+            }
+            details += `Valor base: R$ ${(baseValue - materialValue).toFixed(2).replace('.', ',')}`;
+            if (materialValue > 0) {
+                details += `<br>Material didático: R$ ${materialValue.toFixed(2).replace('.', ',')}/mês`;
+            }
+            details += `<br><br><small>* Valores são estimativas. Consulte condições reais na secretaria.</small>`;
+            
+            resultDetails.innerHTML = details;
+            resultBox.classList.add('show');
+            
+            // Scroll para resultado
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

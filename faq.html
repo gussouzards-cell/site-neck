@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Perguntas Frequentes - Colégio Neck. Tire suas dúvidas sobre matrículas, ensino e atividades.">
+    <title>Perguntas Frequentes - Colégio Neck</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        .page-header {
+            margin-top: 80px;
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faq-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 3px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--color-gray-600);
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary-blue);
+            background: white;
+            color: var(--color-primary-blue);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--color-primary-blue);
+            color: white;
+        }
+        
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .faq-question {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--color-primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--color-gray-50);
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--color-gold);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+        }
+        
+        .faq-answer p {
+            color: var(--color-gray-700);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faq-answer ul {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faq-answer li {
+            color: var(--color-gray-700);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Fixo -->
+    <header class="header-fixed" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" style="display: flex; align-items: center; gap: var(--spacing-xs); text-decoration: none;">
+                        <img src="assets/images/logo-colegio-neck.png" alt="Colégio Neck" class="logo" id="logo-img">
+                    </a>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="sobre-nos.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Sobre Nós</a>
+                    <a href="galeria.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Galeria</a>
+                    <a href="educacao.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Educação</a>
+                    <a href="area-aluno.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Área do Aluno</a>
+                    <a href="blog.html" style="color: var(--color-gray-800); text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="index.html#formulario" class="btn-cta-header">Matricule agora</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>❓ Perguntas Frequentes</h1>
+            <p>Tire suas dúvidas sobre o Colégio Neck</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="faq-search" placeholder="Buscar perguntas...">
+            </div>
+            
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">Todas</button>
+                <button class="category-btn" data-category="matricula">Matrículas</button>
+                <button class="category-btn" data-category="ensino">Ensino</button>
+                <button class="category-btn" data-category="atividades">Atividades</button>
+                <button class="category-btn" data-category="financeiro">Financeiro</button>
+                <button class="category-btn" data-category="geral">Geral</button>
+            </div>
+            
+            <div class="faq-list" id="faq-list">
+                <!-- Matrículas -->
+                <div class="faq-item" data-category="matricula">
+                    <div class="faq-question">
+                        <span>Como faço para matricular meu filho?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode preencher o formulário de interesse em nossa página inicial ou entrar em contato diretamente pelo WhatsApp (11) 46397-7768. Nossa equipe entrará em contato em até 24 horas para agendar uma visita e apresentar nossa proposta pedagógica.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="matricula">
+                    <div class="faq-question">
+                        <span>Quais documentos são necessários para matrícula?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os documentos necessários são:</p>
+                        <ul>
+                            <li>Certidão de nascimento ou RG da criança</li>
+                            <li>RG e CPF dos responsáveis</li>
+                            <li>Comprovante de residência</li>
+                            <li>Cartão de vacinação atualizado</li>
+                            <li>2 fotos 3x4 da criança</li>
+                            <li>Histórico escolar (para transferência)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="matricula">
+                    <div class="faq-question">
+                        <span>Qual a idade mínima para matrícula?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos educação desde o Berçário (a partir de 4 meses) até o 5º Ano do Ensino Fundamental. A idade mínima varia conforme a série desejada. Entre em contato para mais informações específicas.</p>
+                    </div>
+                </div>
+                
+                <!-- Ensino -->
+                <div class="faq-item" data-category="ensino">
+                    <div class="faq-question">
+                        <span>Qual a metodologia de ensino utilizada?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Utilizamos uma metodologia ativa que coloca o aluno como protagonista do aprendizado. Trabalhamos com projetos interdisciplinares, atividades práticas e tecnologias educacionais, sempre respeitando o desenvolvimento de cada criança.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="ensino">
+                    <div class="faq-question">
+                        <span>Como é feita a avaliação dos alunos?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Avaliamos de forma contínua, considerando não apenas o desempenho acadêmico, mas também o desenvolvimento socioemocional, participação em atividades e evolução individual. Realizamos avaliações formais e informais ao longo do ano letivo.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="ensino">
+                    <div class="faq-question">
+                        <span>Há reforço escolar disponível?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos plantão de dúvidas e acompanhamento individualizado para alunos que necessitam de apoio adicional. Nossos professores estão sempre disponíveis para ajudar no desenvolvimento de cada aluno.</p>
+                    </div>
+                </div>
+                
+                <!-- Atividades -->
+                <div class="faq-item" data-category="atividades">
+                    <div class="faq-question">
+                        <span>Quais atividades extracurriculares são oferecidas?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos diversas atividades: Balé, Judô, Libras (Língua Brasileira de Sinais), Maker (criação e inovação), Inglês, além de Educação Financeira e Informática integradas ao currículo. As atividades são opcionais e têm valores à parte.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="atividades">
+                    <div class="faq-question">
+                        <span>As atividades extracurriculares são obrigatórias?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não, as atividades extracurriculares são opcionais. Os pais podem escolher quais atividades desejam que seus filhos participem, de acordo com o interesse e disponibilidade da família.</p>
+                    </div>
+                </div>
+                
+                <!-- Financeiro -->
+                <div class="faq-item" data-category="financeiro">
+                    <div class="faq-question">
+                        <span>Quais são as formas de pagamento aceitas?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceitamos pagamento à vista com desconto, parcelamento em até 12x no cartão de crédito, débito automático e boleto bancário. Entre em contato para conhecer nossos planos e condições especiais.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="financeiro">
+                    <div class="faq-question">
+                        <span>Há descontos para irmãos?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos descontos progressivos para famílias com mais de um filho matriculado. Quanto mais filhos, maior o desconto. Consulte nossa equipe para conhecer os valores específicos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="financeiro">
+                    <div class="faq-question">
+                        <span>A mensalidade inclui material didático?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A mensalidade inclui o ensino regular. O material didático é cobrado separadamente no início do ano letivo. Oferecemos opções de parcelamento para facilitar o pagamento.</p>
+                    </div>
+                </div>
+                
+                <!-- Geral -->
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <span>Qual o horário de funcionamento da escola?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Funcionamos de segunda a sexta-feira, das 7h às 18h. Oferecemos os turnos Manhã, Tarde e Integral, conforme a necessidade de cada família.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <span>A escola oferece alimentação?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, temos refeitório com cardápio balanceado e supervisionado por nutricionista. A alimentação pode ser incluída no plano ou contratada separadamente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <span>Como é a comunicação com os pais?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Mantemos comunicação constante através de agenda digital, WhatsApp, reuniões periódicas e portal do aluno. Os pais recebem informações sobre o desenvolvimento, eventos e atividades dos filhos regularmente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="geral">
+                    <div class="faq-question">
+                        <span>A escola tem transporte escolar?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não oferecemos transporte próprio, mas temos parcerias com empresas de transporte escolar confiáveis. Podemos indicar opções na região para facilitar o deslocamento dos alunos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3 class="footer-logo-text">Colégio Neck</h3>
+                    <p class="footer-tagline">Educação de qualidade desde 1996</p>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-links-column">
+                        <h4>Institucional</h4>
+                        <ul>
+                            <li><a href="sobre-nos.html" class="footer-link">Sobre Nós</a></li>
+                            <li><a href="historia.html" class="footer-link">Nossa História</a></li>
+                            <li><a href="educacao.html" class="footer-link">Educação</a></li>
+                            <li><a href="galeria.html" class="footer-link">Galeria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="area-aluno.html" class="footer-link">Área do Aluno</a></li>
+                            <li><a href="calculadora.html" class="footer-link">Calculadora</a></li>
+                            <li><a href="downloads.html" class="footer-link">Downloads</a></li>
+                            <li><a href="agendamento.html" class="footer-link">Agendar Visita</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Informações</h4>
+                        <ul>
+                            <li><a href="blog.html" class="footer-link">Blog</a></li>
+                            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                            <li><a href="calendario.html" class="footer-link">Calendário</a></li>
+                            <li><a href="quiz.html" class="footer-link">Quiz</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="chat.html" class="footer-link">Fale Conosco</a></li>
+                            <li><a href="mapa.html" class="footer-link">Localização</a></li>
+                            <li><a href="newsletter.html" class="footer-link">Newsletter</a></li>
+                            <li><a href="index.html#formulario" class="footer-link">Matrículas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="footer-address">
+                        <h3>Endereço</h3>
+                        <p>R. Florianópolis, 516 - Cidade Kemel<br>Poá - SP, CEP 08554-110</p>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contato</h3>
+                        <p>
+                            <a href="tel:+551146397768" class="footer-link">Telefone: (11) 46397-7768</a><br>
+                            <a href="https://wa.me/551146397768" target="_blank" class="footer-link" rel="noopener">WhatsApp: (11) 46397-7768</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Neck. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fechar todos
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Abrir o clicado se não estava ativo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Busca
+        document.getElementById('faq-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // Filtro por categoria
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
