@@ -478,7 +478,18 @@ a:hover {
     }
 }
 
-/* Mobile - Menu Hambúrguer */
+/* Desktop - Menu fixo visível */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    .header-content nav {
+        display: flex;
+    }
+}
+
+/* Mobile e Tablet - Menu hambúrguer */
 @media (max-width: 767px) {
     .menu-toggle {
         display: flex;
